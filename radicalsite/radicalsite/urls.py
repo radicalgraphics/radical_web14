@@ -14,6 +14,12 @@ urlpatterns = patterns('',
     url(r'^$', 'radicalwebapp.views.home', name='home'),
     # url(r'^radicalsite/', include('radicalsite.foo.urls')),
 
+    url(r'^(\d+)/$', "post"),
+   url(r'^add_comment/(\d+)/$', "add_comment"),
+   url(r'^delete_comment/(\d+)/$', "delete_comment"),
+   url(r'^delete_comment/(\d+)/(\d+)/$', "delete_comment"),
+   url(r'^month/(\d+)/(\d+)/$', "month"),
+
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

@@ -2137,3 +2137,9 @@ ul.navbar-nav{
 	display:block;
 }
 
+.layersIcon{
+	background:url(../img/icons/layers.png) no-repeat center center;
+	width:110px;
+	height:108px;
+	display:block;
+}
