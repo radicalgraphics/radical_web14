@@ -32,6 +32,10 @@ Style Sheets
 
 
 <script src="{{ STATIC_URL }}assets/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+<script src='{{ STATIC_URL }}spex_qubal/js/jquery.dajax.core.js'></script>
+
+
+
 </head>
 <body data-spy="scroll" data-target="#sticktop" data-offset="70">
 <!--=================================
@@ -448,8 +452,20 @@ Script Source
 <script src="{{ STATIC_URL }}assets/js/jquery.mixitup.min.js"></script> 
 <script src="{{ STATIC_URL }}assets/js/jquery.carouFredSel-6.2.1-packed.js"></script> 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script> 
- <script src="{{ STATIC_URL }}assets/js/jquery.prettyPhoto.js"></script>
-<script src="{{ STATIC_URL }}assets/js/main.js"></script> 
+<script src="{{ STATIC_URL }}assets/js/jquery.prettyPhoto.js"></script>
+<script src="{{ STATIC_URL }}assets/js/main.js"></script>
+
+<script>
+
+  function get_course(course_id, student_id){
+    
+    //We inject the ajax spinner on the same div ID before making the AJAX call ;-)
+    $('#idquests-list-boxes').html('<div class="qubal_ajax_spinner pagination-centered"><img src="{{STATIC_URL}}jawa_qubal/img/spiffygif_62x62.gif"><br><span class="quests-quests-boxes-course-name medium-icon">loading</span></div>');
+
+    Dajaxice.qubalapp.get_course(Dajax.process,{'course_id':course_id, 'student_id':student_id});
+  }
+
+</script>
 
 </body>
 

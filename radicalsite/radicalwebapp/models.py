@@ -4,7 +4,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib import admin
 from django.core.mail import send_mail
-
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
 
 class Post(models.Model):
     title = models.CharField(max_length=60)
@@ -36,6 +37,21 @@ class Comment(models.Model):
         if "notify" in kwargs: del kwargs["notify"]
         super(Comment, self).save(*args, **kwargs)
 
+class Portfolio(models.Model):
+    TAGS = (
+        ('web applications', 'Web Applications'),
+        ('games', 'Games'),
+        ('gamification', 'Gamification'),
+        ('user experience', 'User Experience'),
+    )
+
+    name = models.CharField(max_length=250)
+    platform = models.CharField(max_length=250)
+    tag = models.CharField(max_length=16, choices=TAGS)
+    image = models.ImageField(upload_to="img/Our_work", default="")
+
+    def __unicode__(self):
+        return ' Name: ' + self.name + ' Platform: ' + self.platform + ' Tags: ' + self.tag
 
 ### Admin
 
