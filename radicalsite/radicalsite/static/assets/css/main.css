@@ -413,6 +413,13 @@ a.navbar-brand img{
 	margin:0 auto;
 }
 
+.top-shadow{
+	height: 1px;
+	background:#c2c2c2;
+-webkit-box-shadow: 0px 1px 10px 0px rgba(50,50,50,1);
+-moz-box-shadow: 0px 1px 10px 0px rgba(50,50,50,1);
+box-shadow: 0px 1px 10px 0px rgba(50,50,50,1);
+}
 /* ============================
    5-About-US
    =========================== */
