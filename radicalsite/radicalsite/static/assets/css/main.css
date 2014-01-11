@@ -1772,7 +1772,8 @@ footer{
 	font-family: 'Open Sans', sans-serif;
 	font-size:16px;
 	line-height:28px;
-	background:#21aae1;
+	/*background:#21aae1;*/
+	background:url(../img/BG/blueprint-background2.jpg);
 	padding-top:45px;
 	padding-bottom:45px;
 	text-align:center;
