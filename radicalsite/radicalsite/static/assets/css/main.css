@@ -1680,7 +1680,7 @@ footer{
 #contact{
 	padding-top:75px;
 	padding-bottom:65px;
-	background:#2d3538;
+	background: url(../img/BG/promobg.jpg) repeat;
 }
 #contact h2{
 	font-family:maven pro;
@@ -1901,6 +1901,15 @@ ul.navbar-nav{
 	max-width:600px;
 }
 
+.navbar-default .navbar-brand{
+	font-size:1em;
+}
+
+.navbar-default .navbar-brand img{
+	width:20%;
+}
+
+
 }
  
 /* Landscape phone to portrait tablet */
@@ -1996,7 +2005,9 @@ ul.navbar-nav{
 	font-size:1em;
 }
 
-
+.navbar-default .navbar-brand img{
+	width:20%;
+}
 
 }
 
