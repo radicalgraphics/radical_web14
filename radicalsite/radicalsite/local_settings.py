@@ -5,6 +5,10 @@
 # Example: "/var/www/example.com/static/"
 STATIC_ROOT = 'C:/Proyectos/GitHub/radical_web14/radicalsite/radicalsite/static/'
 
+MEDIA_ROOT = 'C:/Proyectos/GitHub/radical_web14/radicalsite/media/'
+
+MEDIA_URL = 'http://127.0.0.1:8000/media/'
+
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
 STATIC_URL = 'http://127.0.0.1:8000/static/'
@@ -14,6 +18,6 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-   'C:/Proyectos/GitHub/radical_web14/radicalsite/radicalsite/static',
+    # 'C:/Proyectos/GitHub/radical_web14/radicalsite/radicalsite/static',
     #os.path.join(os.path.dirname(__file__),'media').replace('\\','/'),
 )

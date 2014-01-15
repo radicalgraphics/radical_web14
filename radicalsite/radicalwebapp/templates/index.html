@@ -2,6 +2,9 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
 <!--[if gt IE 9]><!-->
+
+{% load dajaxice_templatetags %}
+
 <html class="no-js">
 <!--<![endif]-->
 
@@ -32,9 +35,9 @@ Style Sheets
 
 
 <script src="{{ STATIC_URL }}assets/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-<script src='{{ STATIC_URL }}spex_qubal/js/jquery.dajax.core.js'></script>
+<script src='{{ STATIC_URL }}dajax/jquery.dajax.core.js'></script>
 
-
+{% dajaxice_js_import %}
 
 </head>
 <body data-spy="scroll" data-target="#sticktop" data-offset="70">
@@ -105,7 +108,7 @@ About-us
   <div class="container">
     <div class="section-head">
       <h1>What we do</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris laoreet, lectus tempus placerat mollis, orci augue pretium dui, eget pharetra lorem tellus at sapien. Mauris vitae venenatis augue, eu malesuada mi. </p>
+      <p>We build, create, imagine, capture, express, develop and work very hard on Apps, Videogames and last but not least, Gamification. </p>
     </div>
     <div class="carousel-nav"> <a id="phase-prev" href="#" class="prev"><span class=" icon-angle-left"></span></a> <a id="phase-next" href="#" class="next"><span class=" icon-angle-right"></span></a> </div>
     <div class="about-wrapper">
@@ -142,7 +145,7 @@ About-us
       <div class="work-phase"> <span class="heartIcon"></span>
         <h2>We love
           what we do</h2>
-        <p>Vestibulum gravida augue eu ornare pharetra pellentesque nibh lacus ultricies vel dignissim.</p>
+        <p>Of course! Our team has been here since the beggining of the Internet and the Videogames industry and we still love what we do, our passion is our strength.</p>
         <div class="hover">
           <h2>We love
             what we do</h2>
@@ -168,21 +171,21 @@ About-us
       </div>
       <div class="records-wrapper">
         <div class="record animate1"> <span class="coffeecupIcon"></span>
-          <h5><span data-total="89" class="stat"></span>Cup of coffee <br>
+          <h5><span data-total="1587" class="stat"></span>Cup of coffee <br>
             consumed</h5>
           <div class="clearfix"></div>
         </div>
         <!--\\record-->
         
         <div class="record animate2"> <span class="meterIcon"></span>
-          <h5><span data-total="123" class="stat"></span>Working <br>
+          <h5><span data-total="45" class="stat"></span>Working <br>
             Challenges</h5>
           <div class="clearfix"></div>
         </div>
         <!--\\record-->
         
         <div class="record animate3"> <span class="laptopIcon"></span>
-          <h5><span data-total="18" class="stat"></span>Projects <br>
+          <h5><span data-total="38" class="stat"></span>Projects <br>
             Completed</h5>
           <div class="clearfix"></div>
         </div>
@@ -259,75 +262,15 @@ Services
   </div>
   <ul class="project-filter">
     <li class="filter" data-filter="all">Everything</li>
-    <li class="filter" data-filter="illustration">Apps</li>
-    <li class="filter" data-filter="art">Games</li>
-    <li class="filter" data-filter="graphic">Gamification</li>
-    <li class="filter" data-filter="web">User Experience</li>
+    <li class="filter" data-filter="web applications">Apps</li>
+    <li class="filter" data-filter="games">Games</li>
+    <li class="filter" data-filter="gamification">Gamification</li>
+    <li class="filter" data-filter="user experience">User Experience</li>
   </ul>
   <div id="Grid" class="project-wrapper">
-    <div class="project web"> <img src="{{ STATIC_URL }}assets/img/Our_work/2.jpg" alt="">
-      <div class="hover">
-        <h5>Flat icon</h5>
-        <p>by Leonardo Zem</p>
-        <a href="{{ STATIC_URL }}assets/img/Our_work/2.jpg" data-rel="prettyPhoto" class="btn"><b class="icon-search"></b></a> </div>
-    </div>
-    <!--work-->
-    
-    <div class="project web"> <img src="{{ STATIC_URL }}assets/img/Our_work/1.jpg" alt="">
-      <div class="hover">
-        <h5>Flat icon</h5>
-        <p>by Leonardo Zem</p>
-        <a href="{{ STATIC_URL }}assets/img/Our_work/1.jpg" data-rel="prettyPhoto" class="btn"><b class="icon-search"></b></a> </div>
-    </div>
-    <!--work-->
-    
-    <div class="project illustration"> <img src="{{ STATIC_URL }}assets/img/Our_work/4.jpg" alt="">
-      <div class="hover">
-        <h5>Flat icon</h5>
-        <p>by Leonardo Zem</p>
-        <a href="{{ STATIC_URL }}assets/img/Our_work/4.jpg" data-rel="prettyPhoto" class="btn"><b class="icon-search"></b></a> </div>
-    </div>
-    <!--work-->
-    
-    <div class="project graphic"> <img src="{{ STATIC_URL }}assets/img/Our_work/5.jpg" alt="">
-      <div class="hover">
-        <h5>Flat icon</h5>
-        <p>by Leonardo Zem</p>
-        <a href="{{ STATIC_URL }}assets/img/Our_work/5.jpg" data-rel="prettyPhoto" class="btn"><b class="icon-search"></b></a> </div>
-    </div>
-    <!--work-->
-    
-    <div class="project illustration"> <img src="{{ STATIC_URL }}assets/img/Our_work/6.jpg" alt="">
-      <div class="hover">
-        <h5>Flat icon</h5>
-        <p>by Leonardo Zem</p>
-        <a href="{{ STATIC_URL }}assets/img/Our_work/6.jpg" data-rel="prettyPhoto" class="btn"><b class="icon-search"></b></a> </div>
-    </div>
-    <!--work-->
-    
-    <div class="project art"> <img src="{{ STATIC_URL }}assets/img/Our_work/7.jpg" alt="">
-      <div class="hover">
-        <h5>Flat icon</h5>
-        <p>by Leonardo Zem</p>
-        <a href="{{ STATIC_URL }}assets/img/Our_work/7.jpg" data-rel="prettyPhoto" class="btn"><b class="icon-search"></b></a> </div>
-    </div>
-    <!--work-->
-    
-    <div class="project web"> <img src="{{ STATIC_URL }}assets/img/Our_work/8.jpg" alt="">
-      <div class="hover">
-        <h5>Flat icon</h5>
-        <p>by Leonardo Zem</p>
-        <a href="{{ STATIC_URL }}assets/img/Our_work/8.jpg" data-rel="prettyPhoto" class="btn"><b class="icon-search"></b></a> </div>
-    </div>
-    <!--work-->
-    
-    <div class="project graphic"> <img src="{{ STATIC_URL }}assets/img/Our_work/1.jpg" alt="">
-      <div class="hover">
-        <h5>Flat icon</h5>
-        <p>by Leonardo Zem</p>
-        <a href="{{ STATIC_URL }}assets/img/Our_work/2.jpg" data-rel="prettyPhoto" class="btn"><b class="icon-search"></b></a> </div>
-    </div>
-    <!--work--> 
+
+    <div id='portfolio_pics'></div>
+
   </div>
   <div class="clearfix"></div>
   <div class="load-more"> <a href="#">load more</a> </div>
@@ -442,7 +385,24 @@ Services
 <!--=================================
 Script Source
 =================================--> 
+
 <script src="{{ STATIC_URL }}assets/js/jquery-1.9.js"></script> 
+
+<script>
+
+  $("#portfolio_pics").load(Dajaxice.radicalwebapp.get_portfolio(Dajax.process,{'page':{{ page }} }));
+
+  function get_portfolio(page){
+    
+    //We inject the ajax spinner on the same div ID before making the AJAX call ;-)
+    // $('#portfolio_pics').html('<div class="qubal_ajax_spinner pagination-centered"><img src="{{STATIC_URL}}jawa_qubal/img/spiffygif_62x62.gif"><br><span class="quests-quests-boxes-course-name medium-icon">loading</span></div>');
+
+    Dajaxice.radicalwebapp.get_portfolio(Dajax.process,{'page':page});
+  }
+
+</script>
+
+
 <script src="{{ STATIC_URL }}assets/js/bootstrap.min.js"></script> 
 <script src="{{ STATIC_URL }}assets/js/jquery.easing-1.3.pack.js"></script> 
 <script src="{{ STATIC_URL }}assets/js/jquery.sticky.js"></script> 
@@ -455,17 +415,7 @@ Script Source
 <script src="{{ STATIC_URL }}assets/js/jquery.prettyPhoto.js"></script>
 <script src="{{ STATIC_URL }}assets/js/main.js"></script>
 
-<script>
 
-  function get_course(course_id, student_id){
-    
-    //We inject the ajax spinner on the same div ID before making the AJAX call ;-)
-    $('#idquests-list-boxes').html('<div class="qubal_ajax_spinner pagination-centered"><img src="{{STATIC_URL}}jawa_qubal/img/spiffygif_62x62.gif"><br><span class="quests-quests-boxes-course-name medium-icon">loading</span></div>');
-
-    Dajaxice.qubalapp.get_course(Dajax.process,{'course_id':course_id, 'student_id':student_id});
-  }
-
-</script>
 
 </body>
 
