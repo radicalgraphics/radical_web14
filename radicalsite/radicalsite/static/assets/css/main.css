@@ -1,4 +1,22 @@
+/*!
+ * Css for Radical Graphics Studios site by @bochelord and @leunamsan
+ * Copyright 2014 Radical Graphics Studios
+ * 
+ *
+ * Designed and built with all the love in Amsterdam.
+ */
 
+
+@font-face {
+    font-family: 'BebasNeueRegular';
+    src: url('fonts/BebasNeue-webfont.eot');
+    src: url('fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/BebasNeue-webfont.woff') format('woff'),
+         url('fonts/BebasNeue-webfont.ttf') format('truetype'),
+         url('fonts/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
 /*	Table OF Contents
 ==========================
@@ -367,7 +385,8 @@ a.navbar-brand img{
 #home .slider-wrapper{
 	position:relative;
 	/*background:#1eace3;*/
-	background:url(../img/BG/blueprint-background2.jpg);
+	background-position: center;
+	background:url(../img/BG/blueprint_back_header.jpg);
 	margin-top:30px;
 	margin-bottom:-50px;
 }
@@ -429,7 +448,7 @@ box-shadow: 0px 1px 10px 0px rgba(50,50,50,1);
 }
 
 #about p{
-	text-align:center;
+	text-align:justify;
 }
 .about-wrapper{
 	position:relative;
@@ -1776,11 +1795,11 @@ footer{
 
 footer{
 	color:#fff;
-	font-family: 'Open Sans', sans-serif;
-	font-size:16px;
+	font-family: 'BebasNeueRegular', sans-serif;
+	font-size:1.2em;
 	line-height:28px;
 	/*background:#21aae1;*/
-	background:url(../img/BG/blueprint-background2.jpg);
+	background:url(../img/BG/blueprint_back_header.jpg);
 	padding-top:45px;
 	padding-bottom:45px;
 	text-align:center;
