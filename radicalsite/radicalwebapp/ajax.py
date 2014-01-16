@@ -14,17 +14,21 @@ def get_portfolio(request, page):
 
 	dajax = Dajax()
 
-	pictures = Portfolio.objects.all()
+	ids_to_get_to = int(page) * 8 
+	ids_to_get_from = ((int(page) - 1) * 8)
 
-	ids_to_get_to = page * 8 
-	ids_to_get_from = ((page - 1) * 8)
+	pictures = Portfolio.objects.all()[ids_to_get_from:ids_to_get_to]
+	
+	portfolio_length = Portfolio.objects.all().count()
 
-	# pics_range = list(range(ids_to_get_from, ids_to_get_to))
-	print pictures
-	# html = "<div id='Grid' class='project-wrapper'>"
+
+	print str(portfolio_length) + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< pictures_length"
+	print str(ids_to_get_to) + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ids_to_get_to"
+
 	html = ""
 	for pic in pictures:
-		html += "<div class='project " + pic.tag + "'> <img src='" + pic.image.url + "' alt=''>"
+
+		html += "<div class='project " + pic.tag + " mix_all' style='display: inline-block; opacity: 1;'> <img src='" + pic.image.url + "' alt=''>"
 		html += "	<div class='hover'>"
 		html += "		<h5>" + pic.platform + "</h5>"
 		html += "		<p>" + pic.name + "</p>"
@@ -32,8 +36,12 @@ def get_portfolio(request, page):
 		html += "	</div>"
 		html += "</div>"
 
-	# html += "</div>"
-	print html
+	page = int(page) + 1
+
+	html += "<input type='hidden' value='" + str(page) + "' id='next_page'>"
+	html += "<input type='hidden' value='" + str(ids_to_get_to) + "' id='last_id'>"
+	html += "<input type='hidden' value='" + str(portfolio_length) + "' id='portfolio_length'>"
+
 	dajax.assign('#portfolio_pics', 'innerHTML', html)
 
 	return dajax.json()

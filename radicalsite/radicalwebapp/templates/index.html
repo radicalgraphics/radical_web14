@@ -273,7 +273,7 @@ Services
 
   </div>
   <div class="clearfix"></div>
-  <div class="load-more"> <a href="#">load more</a> </div>
+  <div class="load-more" id="load_more_button"> <a href="#portfolio" onclick="get_portfolio();">load more</a> </div>
 </section>
 <!--=================================
 	Team
@@ -391,28 +391,47 @@ Script Source
 
 <script src="{{ STATIC_URL }}assets/js/jquery-1.9.js"></script> 
 
+
 <script>
 
-  $("#portfolio_pics").load(Dajaxice.radicalwebapp.get_portfolio(Dajax.process,{'page':{{ page }} }));
+  $("#portfolio_pics").load(Dajaxice.radicalwebapp.get_portfolio(Dajax.process,{'page': {{ page }} }));
 
-  function get_portfolio(page){
-    
+  function get_portfolio(){
+
+    var next = $('#next_page').val();
+    var last = $('#last_id').val();
+    last = parseInt(last)+8;
+    var portfolio = $('#portfolio_length').val();
+    portfolio = parseInt(portfolio);
+    console.log("last", last);
+    console.log("portfolio", portfolio);
     //We inject the ajax spinner on the same div ID before making the AJAX call ;-)
     // $('#portfolio_pics').html('<div class="qubal_ajax_spinner pagination-centered"><img src="{{STATIC_URL}}jawa_qubal/img/spiffygif_62x62.gif"><br><span class="quests-quests-boxes-course-name medium-icon">loading</span></div>');
+    if (last<=portfolio)
+    {
 
-    Dajaxice.radicalwebapp.get_portfolio(Dajax.process,{'page':page});
+      Dajaxice.radicalwebapp.get_portfolio(Dajax.process,{'page':next});
+      $('#Grid').mixitup('remix','all');
+      if (last==portfolio){
+        document.getElementById("load_more_button").style.visibility="hidden";
+      }
+
+    }else{
+      document.getElementById("load_more_button").style.visibility="hidden";
+    }
+
+    
   }
-
+  
 </script>
 
-
+<script src="{{ STATIC_URL }}assets/js/jquery.mixitup.min.js"></script> 
 <script src="{{ STATIC_URL }}assets/js/bootstrap.min.js"></script> 
 <script src="{{ STATIC_URL }}assets/js/jquery.easing-1.3.pack.js"></script> 
 <script src="{{ STATIC_URL }}assets/js/jquery.sticky.js"></script> 
 <script src="{{ STATIC_URL }}assets/js/jquery.inview.js"></script> 
 <script src="{{ STATIC_URL }}assets/js/jquery.flexslider-min.js"></script> 
 <script src="{{ STATIC_URL }}assets/js/masonry.pkgd.min.js"></script>
-<script src="{{ STATIC_URL }}assets/js/jquery.mixitup.min.js"></script> 
 <script src="{{ STATIC_URL }}assets/js/jquery.carouFredSel-6.2.1-packed.js"></script> 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script> 
 <script src="{{ STATIC_URL }}assets/js/jquery.prettyPhoto.js"></script>
