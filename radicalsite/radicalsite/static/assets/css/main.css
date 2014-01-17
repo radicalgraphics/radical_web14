@@ -41,6 +41,7 @@
 
 
 
+
 =================================
 1- General Styles
 =================================*/
@@ -327,7 +328,7 @@ a.navbar-brand img{
 
 #page-head{
 	position:relative;
-	padding:45px 0 50px;
+	padding:25px 0 30px;
 	background:#21aae1;
 	margin-top:100px;
 }
@@ -1406,6 +1407,21 @@ box-shadow: 0px 1px 10px 0px rgba(50,50,50,1);
 	text-transform:uppercase;
 }
 
+.current{
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.step-links{
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+.pagination{
+	text-align: center;
+
+}
+
 /*---Blog Unit---*/
 
 .masonry-container{
@@ -1707,7 +1723,8 @@ footer{
 #contact{
 	padding-top:75px;
 	padding-bottom:65px;
-	background: url(../img/BG/promobg.jpg) repeat;
+	background: url(../img/BG/footerbg.jpg) repeat;
+	
 }
 #contact h2{
 	font-family:maven pro;
@@ -1807,10 +1824,13 @@ footer{
 	font-size:1.2em;
 	line-height:28px;
 	/*background:#21aae1;*/
-	background:url(../img/BG/blueprint_back_header.jpg);
+	background:url(../img/BG/blueprint_back_header_bw.jpg);
 	padding-top:45px;
 	padding-bottom:45px;
 	text-align:center;
+	-webkit-box-shadow: inset 0px 8px 12px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: inset 0px 8px 12px 0px rgba(0,0,0,0.75);
+box-shadow: inset 0px 8px 12px 0px rgba(0,0,0,0.75);
 }
 
 

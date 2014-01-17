@@ -109,7 +109,7 @@ def month(request, year, month):
 def main(request):
     """Main listing."""
     posts = Post.objects.all().order_by("-created")
-    paginator = Paginator(posts, 10)
+    paginator = Paginator(posts, 5)
     try: page = int(request.GET.get("page", '1'))
     except ValueError: page = 1
 
