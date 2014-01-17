@@ -49,9 +49,10 @@ class Portfolio(models.Model):
     platform = models.CharField(max_length=250)
     tag = models.CharField(max_length=16, choices=TAGS)
     image = models.ImageField(upload_to="media/img/Our_work", default="")
+    featured = models.IntegerField(default=0)
 
     def __unicode__(self):
-        return ' Name: ' + self.name + ' Platform: ' + self.platform + ' Tags: ' + self.tag
+        return ' Name: ' + self.name + ' Platform: ' + self.platform + ' Tags: ' + self.tag + ' Featured: ' + str(self.featured)
 
 ### Admin
 

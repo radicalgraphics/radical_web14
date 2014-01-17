@@ -252,26 +252,27 @@ Services
 	Our Work
 =================================-->
 <section id="portfolio">
-  
-    <div class="section-head">
-      <h1>portfolio</h1>
-      <p>Project in which we worked on and where our experience, hard work and heart went</p>
-    </div>
-    <ul class="project-filter">
-      <li class="filter" data-filter="all">Everything</li>
-      <li class="filter" data-filter="web applications">Apps</li>
-      <li class="filter" data-filter="games">Games</li>
-      <li class="filter" data-filter="gamification">Gamification</li>
-      <li class="filter" data-filter="user experience">User Experience</li>
-    </ul>
-    <div id="Grid" class="project-wrapper">
+
+  <div class="section-head">
+    <h1>portfolio</h1>
+    <p>Project in which we worked on and where our experience, hard work and heart went</p>
+  </div>
+  <ul class="project-filter">
+    <li id="filter1" data-filter="all">Everything</li>
+    <li id="filter2" data-filter="web applications">Apps</li>
+    <li id="filter3" data-filter="games">Games</li>
+    <li id="filter4" data-filter="gamification">Gamification</li>
+    <li id="filter5" data-filter="user experience">User Experience</li>
+  </ul>
+  <div id="Grid" class="project-wrapper">
+
 
       <div id='portfolio_pics'></div>
 
-    </div>
-    <div class="clearfix"></div>
-    <div class="load-more" id="load_more_button"> <a href="#portfolio" onclick="get_portfolio();">load more</a> </div>
- 
+  </div>
+  <div class="clearfix"></div>
+  <div class="load-more" id="load_more_button"> <a href="#portfolio" onclick="increase_page();">load more</a> </div>
+
 </section>
 <!--=================================
 	Team
@@ -389,41 +390,6 @@ Script Source
 =================================--> 
 
 <script src="{{ STATIC_URL }}assets/js/jquery-1.9.js"></script> 
-
-
-<script>
-
-  $("#portfolio_pics").load(Dajaxice.radicalwebapp.get_portfolio(Dajax.process,{'page': {{ page }} }));
-
-  function get_portfolio(){
-
-    var next = $('#next_page').val();
-    var last = $('#last_id').val();
-    last = parseInt(last)+8;
-    var portfolio = $('#portfolio_length').val();
-    portfolio = parseInt(portfolio);
-    console.log("last", last);
-    console.log("portfolio", portfolio);
-    //We inject the ajax spinner on the same div ID before making the AJAX call ;-)
-    // $('#portfolio_pics').html('<div class="qubal_ajax_spinner pagination-centered"><img src="{{STATIC_URL}}jawa_qubal/img/spiffygif_62x62.gif"><br><span class="quests-quests-boxes-course-name medium-icon">loading</span></div>');
-    if (last<=portfolio)
-    {
-
-      Dajaxice.radicalwebapp.get_portfolio(Dajax.process,{'page':next});
-      $('#Grid').mixitup('remix','all');
-      if (last==portfolio){
-        document.getElementById("load_more_button").style.visibility="hidden";
-      }
-
-    }else{
-      document.getElementById("load_more_button").style.visibility="hidden";
-    }
-
-    
-  }
-  
-</script>
-
 <script src="{{ STATIC_URL }}assets/js/jquery.mixitup.min.js"></script> 
 <script src="{{ STATIC_URL }}assets/js/bootstrap.min.js"></script> 
 <script src="{{ STATIC_URL }}assets/js/jquery.easing-1.3.pack.js"></script> 
@@ -435,6 +401,88 @@ Script Source
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script> 
 <script src="{{ STATIC_URL }}assets/js/jquery.prettyPhoto.js"></script>
 <script src="{{ STATIC_URL }}assets/js/main.js"></script>
+
+<script>
+
+  var tag = "all";
+  $("#portfolio_pics").load(Dajaxice.radicalwebapp.get_portfolio(Dajax.process,{'page': {{ page }}, 'tag': tag }));
+  
+  $("#filter1").click(function (event){
+    event.stopPropagation();
+    var tag = $(this).attr('data-filter');
+    console.log (tag, "Tag");
+    var page = 1;
+    get_portfolio(page, tag);
+  });
+
+  $("#filter2").click(function (event){
+    event.stopPropagation();
+    var tag = $(this).attr('data-filter');
+    console.log (tag, "Tag");
+    var page = 1;
+    get_portfolio(page, tag);
+  });
+
+  $("#filter3").click(function (event){
+    event.stopPropagation();
+    var tag = $(this).attr('data-filter');
+    console.log (tag, "Tag");
+    var page = 1;
+    get_portfolio(page, tag);
+  });
+
+  $("#filter4").click(function (event){
+    event.stopPropagation();
+    var tag = $(this).attr('data-filter');
+    console.log (tag, "Tag");
+    var page = 1;
+    get_portfolio(page, tag);
+  });
+
+  $("#filter5").click(function (event){
+    event.stopPropagation();
+    var tag = $(this).attr('data-filter');
+    console.log (tag, "Tag");
+    var page = 1;
+    get_portfolio(page, tag);
+  });
+
+  function get_portfolio(page, tag){
+    
+    Dajaxice.radicalwebapp.get_portfolio(Dajax.process,{'page':page, 'tag':tag});
+    $('#Grid').mixitup('remix','all'); 
+
+    var last = $('#last_id').val();
+    last = parseInt(last);
+    console.log(last, "Last");
+
+    var portfolio = $('#portfolio_length').val();
+    portfolio = parseInt(portfolio);
+    console.log(portfolio, "Portfolio");
+
+    if (last<portfolio)
+    {
+      document.getElementById("load_more_button").style.visibility="visible";
+    }
+    else
+    {
+     document.getElementById("load_more_button").style.visibility="hidden"; 
+    }
+
+  }
+  
+
+  function increase_page(){
+    var page = $('#next_page').val();
+    var new_page = parseInt(page) + 1;
+    $('#next_page').val(new_page);
+    Dajaxice.radicalwebapp.get_portfolio(Dajax.process,{'page':new_page, 'tag':tag});
+    $('#Grid').mixitup('remix','all'); 
+  }
+
+</script>
+
+
 
 
 

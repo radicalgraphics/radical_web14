@@ -10,23 +10,27 @@ from django.conf import settings
 # from imagekit.cachefiles import ImageCacheFile
 
 @dajaxice_register
-def get_portfolio(request, page):
+def get_portfolio(request, page, tag):
 
 	dajax = Dajax()
 
 	ids_to_get_to = int(page) * 8 
 	ids_to_get_from = ((int(page) - 1) * 8)
 
-	pictures = Portfolio.objects.all()[ids_to_get_from:ids_to_get_to]
+	if (tag == "all"):
+		pictures = Portfolio.objects.all()
+		portfolio_length = Portfolio.objects.all().count()
+	else:
+		pictures = Portfolio.objects.filter(tag=tag).all()
+		portfolio_length = Portfolio.objects.filter(tag=tag).count()
 	
-	portfolio_length = Portfolio.objects.all().count()
 
-
+	print str(page) + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< PAGE >>>>>>>>>>>>>"
 	print str(portfolio_length) + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< pictures_length"
 	print str(ids_to_get_to) + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ids_to_get_to"
 
 	html = ""
-	for pic in pictures:
+	for pic in pictures[ids_to_get_from:ids_to_get_to]:
 
 		html += "<div class='project " + pic.tag + " mix_all' style='display: inline-block; opacity: 1;'> <img src='" + pic.image.url + "' alt=''>"
 		html += "	<div class='hover'>"
@@ -36,7 +40,8 @@ def get_portfolio(request, page):
 		html += "	</div>"
 		html += "</div>"
 
-	page = int(page) + 1
+	if (portfolio_length<ids_to_get_to):
+		ids_to_get_to = portfolio_length
 
 	html += "<input type='hidden' value='" + str(page) + "' id='next_page'>"
 	html += "<input type='hidden' value='" + str(ids_to_get_to) + "' id='last_id'>"
