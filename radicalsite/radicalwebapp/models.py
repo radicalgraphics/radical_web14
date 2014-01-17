@@ -11,9 +11,9 @@ class Post(models.Model):
     title = models.CharField(max_length=60)
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
-
+    author = models.ForeignKey(User)
     def __unicode__(self):
-        return self.title
+        return self.title 
 
 
 class Comment(models.Model):
@@ -30,9 +30,9 @@ class Comment(models.Model):
         if "notify" in kwargs and kwargs["notify"] == True:
             message = "Comment was was added to '%s' by '%s': \n\n%s" % (self.post, self.author,
                                                                          self.body)
-            from_addr = "no-reply@mydomain.com"
-            recipient_list = ["myemail@mydomain.com"]
-            send_mail("New comment added", message, from_addr, recipient_list)
+            # from_addr = "no-reply@mydomain.com"
+            # recipient_list = ["myemail@mydomain.com"]
+            # send_mail("New comment added", message, from_addr, recipient_list)
 
         if "notify" in kwargs: del kwargs["notify"]
         super(Comment, self).save(*args, **kwargs)

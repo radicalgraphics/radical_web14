@@ -1,22 +1,140 @@
 {% extends "bbase.html" %}
 
 {% block content %}
-    <style type="text/css">
-        .main { margin-left: 25px; margin-top: 30px; }
-        .time { font-size: 0.8em; margin-top: 2px; }
-        .comment { border: 1px solid #eee; padding: 4px; margin-bottom: 12px; }
-        .body { font-size: 1.1em; margin-top: 2px; }
-        .messages { margin-left: 20px; }
-        .title { font-size: 1.4em; margin-top: 20px; border-bottom: 1px solid #ccc; padding-left: 4px; }
 
-        #addc { width: 508px; background: #f5f5f5; padding: 3px; padding-bottom: 8px;
-            border-bottom: 1px dotted #aaa;
-            }
-        #cform { background: #f5f5f5; width: 506px; padding: 4px; padding-bottom: 0px; }
-        #submit { text-align: right; margin-right: 50px; width: 500px; margin-top: -5px; }
+    
 
-        ul { margin-bottom: 30px; }
-    </style>
+    <!--=================================
+Blog
+=================================-->
+
+<section class="blog">
+    <div class="container">
+        <div class="post detail">
+                <div class="col-lg-10 col-md-12 col-sm-12 col-lg-offset-1">
+                    <div class="post-visual">
+                        <img src="{{ STATIC_URL  }}assets/img/blog/detail01.jpg" alt="">
+                        <div class="comment-count">
+                            <b class="icon-comment"></b>
+                            <span>{{ post.comment_set.count }}</span>
+                        </div>
+                    </div>
+                    
+                    
+                    <h6>{{ post.created }}</h6>
+                    <h2>{{ post.title }}</h2>
+                    <div class="post-info">by <a href="#">{{ post.author.username }}</a> in 
+                        <ul>
+                            <li><a href="#">Standard Post</a></li>
+                            <li><a href="#">Design</a></li>
+                            <li><a href="#">Graphics</a></li>
+                        </ul>
+                    </div>
+                    <p>{{ post.body }}</p>
+                    
+                    <ul class="share">
+                        <li>
+                            <h5>share this post:</h5>
+                            <ul class="social-fonts">
+                                <li><a href="#"><span class="icon-facebook"></span></a></li>
+                                <li ><a href="#"><span class="icon-twitter"></span></a></li>
+                                <li ><a href="#"><span class="icon-pinterest"></span></a></li>
+                                <li ><a href="#"><span class="icon-linkedin"></span></a></li>
+                                <li ><a href="#"><span class="icon-linkedin"></span></a></li>
+                            </ul>
+                        </li>
+                        <li><h5>Tags:</h5>
+                            <ul>
+                                <li><a href="#">Webdesign</a></li>
+                                <li><a href="#">iphone</a></li>
+                                <li><a href="#">graphics</a></li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                
+                </div>
+        </div><!--post-->
+        <div class="col-lg-10 col-md-12 col-sm-12 col-lg-offset-1">
+            <div class="authors">
+                <h2>about the author</h2>
+                <div class="author">
+                    <img src="assets/img/blog/author.jpg" alt="">
+                    <h2>{{ post.author.username }}</h2>
+                    <p>Aenean dignissim vestibulum nibh, in mattis purus vehicula sed. Nam bibendum justo odio, id posuere enim malesuada sit amet. Sed eget porttitor lacus, ut aliquet orci. Pellentesque auctor libero magna, id malesuada diam mattis vitae. Suspendisse vestibulum mi id lacus congue, a auctor velit ullamcorper. </p>
+                </div><!--author-->
+            </div><!--authors-->
+            
+
+            <!-- Comments  -->
+            {% if comments %}
+                <p>Comments:</p>
+            {% endif %}
+
+
+            {% if comments %}
+
+                <div class="comments">
+                    <h2>12 comments</h2>
+                    <div class="comment">
+                        <img src="assets/img/blog/coment.jpg" alt="">
+                        <h2>John Smith</h2>
+                        <div class="date-stamp">Sept 22, 2013 at 2:15 pm</div>
+                        <p>Aenean dignissim vestibulum nibh, in mattis purus vehicula sed. Nam bibendum justo odio, id posuere enim malesuada sit amet. Sed eget porttitor lacus, ut aliquet orci. Pellentesque auctor libero magna, id malesuada diam mattis vitae. </p>
+                        <a class="reply add-reply" href="#comment-form">Reply<i class="icon-share-alt"></i></a>
+                    </div><!--comment-->
+                    
+                    <div class="comment reply">
+                        <img src="assets/img/blog/coment.jpg" alt="">
+                        <h2>John Smith</h2>
+                        <div class="date-stamp">Sept 22, 2013 at 2:15 pm</div>
+                        <p>Aenean dignissim vestibulum nibh, in mattis purus vehicula sed. Nam bibendum justo odio, id posuere enim malesuada sit amet. Sed eget porttitor lacus, ut aliquet orci. Pellentesque auctor libero magna, id malesuada diam mattis vitae. </p>
+                        <a class="reply add-reply" href="#comment-form">Reply<i class="icon-share-alt"></i></a>
+                    </div><!--comment-->
+                    
+                    <div class="comment">
+                        <img src="assets/img/blog/coment.jpg" alt="">
+                        <h2>John Smith</h2>
+                        <div class="date-stamp">Sept 22, 2013 at 2:15 pm</div>
+                        <p>Aenean dignissim vestibulum nibh, in mattis purus vehicula sed. Nam bibendum justo odio, id posuere enim malesuada sit amet. Sed eget porttitor lacus, ut aliquet orci. Pellentesque auctor libero magna, id malesuada diam mattis vitae. </p>
+                        <a class="reply add-reply" href="#comment-form">Reply<i class="icon-share-alt"></i></a>
+                    </div><!--comment-->
+                    
+                </div><!--comments-->
+            {% else %}
+                <div class="comments">
+                    <h2>No comments...yet</h2>
+                </div>
+            {% endif %}
+
+
+            <div class="comment-form">
+                <h2>leave a reply</h2>
+                <form action="{% url 'radicalwebapp.views.add_comment' post.id %}" method="POST">{% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            Name: {{ form.author }}
+                        </div>
+                        <!-- <div class="col-lg-3 col-md-3 col-sm-3">
+                            <input type="text" id="email1" placeholder="Email:">
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <input type="text" id="website" placeholder="Website:">
+                        </div> -->
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <p>{{ form.body }}</p>
+                        </div>
+                    </div>
+                    <input class="btn" id="submit" type="submit" value="Submit reply">
+                </form>
+            </div><!--reply-->
+            
+        </div>
+    </div>
+</section>
+
     <div class="main">
 
         <!-- Messages  -->
@@ -41,14 +159,14 @@
                 <p>Comments:</p>
             {% endif %}
 
-            <form action="{% url blog.views.delete_comment post.pk %}" method="POST">{% csrf_token %}
+            <form action="{% url 'radicalwebapp.views.delete_comment' post.pk %}" method="POST">{% csrf_token %}
             {% for comment in comments %}
                 <div class="comment">
                     <div class="time">{{ comment.created }} | {{ comment.author }}</div>
                     <div class="body">{{ comment.body|linebreaks }}</div>
                     {% if user.is_staff %}
                         <input type="checkbox" name="delete" value="{{ comment.pk }}">
-                        <a href="{% url blog.views.delete_comment post.pk comment.id %}">delete</a>
+                        <a href="{% url 'radicalwebapp.views.delete_comment' post.pk comment.id %}">delete</a>
                     {% endif %}
                 </div>
             {% endfor %}
@@ -61,7 +179,7 @@
 
             <div id="addc">Add a comment</div>
             <!-- Comment form  -->
-            <form action="{% url blog.views.add_comment post.id %}" method="POST">{% csrf_token %}
+            <form action="{% url 'radicalwebapp.views.add_comment' post.id %}" method="POST">{% csrf_token %}
                 <div id="cform">
                     Name: {{ form.author }}
                     <p>{{ form.body|linebreaks }}</p>

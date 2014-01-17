@@ -1,50 +1,49 @@
 {% extends "bbase.html" %}
 
-{% block sidebar %}
-    <style type="text/css">
-        #sidebar { float: right; border: 1px dotted #ccc; padding: 4px; }
-        a { margin-left: 15px; }
-    </style>
-    <div id="sidebar">
-        Monthly Archive
-        <p>
-        {% for month in months %}
-            {% ifchanged month.0 %} {{ month.0 }} <br /> {% endifchanged %}
-            <a href="{% url blog.views.month month.0 month.1 %}">{{ month.2 }}</a> <br />
-        {% endfor %}
-        </p>
-    </div>
-{% endblock %}
-
 {% block content %}
-    <style type="text/css">
-        .main { margin-left: 25px; margin-top: 30px; }
-        .time { font-size: 0.8em; margin-top: 2px; }
-        .body { font-size: 1.1em; margin-top: 2px; }
-        .commentlink { text-align: right; }
-        .step-links a { font-size: 0.89em; }
-        .title {
-            font-size: 1.4em; margin-top: 20px; border-bottom: 1px solid #ccc;
-            padding-left: 4px; margin-left: 5px;
-        }
-        .messages { margin-left: 20px; }
-        .pagination { margin-top: 20px; margin-left: -20px; }
-    </style>
-    <div class="main">
+<!--=================================
+Blog
+=================================-->
 
+<section class="blog">
+    <div class="container">
+        
         <!-- Posts  -->
-            {% for post in post_list %}
-                <div class="title">{{ post.title }}</div>
-                <ul>
-                    <div class="time">{{ post.created }}</div>
-                    <div class="body">{{ post.body|linebreaks }}</div>
-                    <div class="commentlink">
-                    <a href="{% url blog.views.post post.pk %}">Comments ({{ post.comment_set.count }})</a>
-                    </div>
-                </ul>
-            {% endfor %}
+        {% for post in post_list %}
 
-        <!-- Next/Prev page links  -->
+                <div class="post">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-6 col-sm-5 col-lg-offset-1">
+                            <div class="post-visual">
+                                <img src="{{ STATIC_URL }}assets/img/blog/v2-01.jpg" alt="">
+                                <div class="comment-count">
+                                   
+                                        <b class="icon-comment"></b>
+                                        <span>{{ post.comment_set.count }}</span>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-6 col-sm-7">
+                            <h6>{{ post.created }}</h6>
+                            <h2><a href="{% url 'radicalwebapp.views.post' post.pk %}">{{ post.title }}</a></h2>
+                            
+                            <div class="post-info">by <a href="#">{{post.author.username}}</a> in 
+                                <ul>
+                                    <li><a href="#">Standard Post</a></li>
+                                    <li><a href="#">Design</a></li>
+                                    <li><a href="#">Graphics</a></li>
+                                </ul>
+                            </div>
+                            <p>{{ post.body|truncatewords:40 }}</p>
+                            <a href="{% url 'radicalwebapp.views.post' post.pk %}">Read more<i class="icon-angle-right"></i></a>
+                        </div>
+                    </div><!--row-->
+                </div><!--post-->
+        
+        {% endfor %}
+            
+            <!-- Next/Prev page links  -->
         {% if not archive and posts.object_list and posts.paginator.num_pages > 1 %}
         <div class="pagination">
             <span class="step-links">
@@ -64,5 +63,6 @@
         {% endif %}
 
     </div>
+</section>
 
 {% endblock %}
