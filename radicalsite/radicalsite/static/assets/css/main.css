@@ -563,7 +563,8 @@ box-shadow: 0px 1px 10px 0px rgba(50,50,50,1);
    =========================== */
 #services{
 	position:relative;
-	background:#2d3538;
+	/*background:#2d3538;*/
+	background: url(../img/BG/footerbg.jpg) repeat;
 	padding-top:45px;
 }
 #services h1{
