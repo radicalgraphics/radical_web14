@@ -12,6 +12,7 @@ class Post(models.Model):
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User)
+    image = models.ImageField(upload_to="media/img/blog", default="")
     def __unicode__(self):
         return self.title 
 
