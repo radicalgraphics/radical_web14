@@ -311,19 +311,20 @@
         var contact_map = 'contact-map',
             mapAddress = $('#contact-map').data('address'),
             mapType = $('#contact-map').data('maptype'),
-            zoomLvl = $('#contact-map').data('zoomlvl');
-        contactemaps(contact_map, mapAddress, mapType, zoomLvl);
+            zoomLvl = $('#contact-map').data('zoomlvl'),
+            mapPin = $('#contact-map').data('mappin');
+        contactemaps(contact_map, mapAddress, mapType, zoomLvl, mapPin);
 
     }
 
-    function contactemaps(selector, address, type, zoom_lvl) {
+    function contactemaps(selector, address, type, zoom_lvl, mappin) {
         var map = new google.maps.Map(document.getElementById(selector), {
             mapTypeId: google.maps.MapTypeId.type,
             scrollwheel: false,
             draggable: false,
             zoom: zoom_lvl,
         });
-        var map_pin = "assets/img/basic/map-pin.png";
+        var map_pin = mappin;
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({
                 'address': address
