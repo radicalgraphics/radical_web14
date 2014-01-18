@@ -328,9 +328,17 @@ a.navbar-brand img{
 
 #page-head{
 	position:relative;
-	padding:25px 0 30px;
-	background:#21aae1;
+	/*padding:25px 0 30px;*/
+	background-color: #21aae1;
+
+	background: url(../img/BG/call-to-action-mini-bg.jpg);
+	
 	margin-top:100px;
+}
+
+#page-head .wrapper_blue{
+	background: url(../img/BG/call-to-action-pattern.png) repeat;
+	padding:25px 0 30px;
 }
 
 #page-head a{
@@ -344,7 +352,7 @@ a.navbar-brand img{
 
 #page-head h1{
 	position:relative;
-	color:#fff;
+	color:#f2f2f2;
 	padding-bottom:42px;
 	display:table;
 	margin-left:auto;
@@ -367,6 +375,16 @@ a.navbar-brand img{
 
 #page-head.style-2 h1:after{
 	background:#f59343;
+}
+
+
+#page-head h4{
+	position: relative;
+	color:#f2f2f2;
+	margin-left:auto;
+	margin-right:auto;
+	display: table;
+	font-weight: normal;
 }
 
 /* ============================
@@ -1836,6 +1854,10 @@ footer{
 box-shadow: inset 0px 8px 12px 0px rgba(0,0,0,0.75);
 }
 
+footer img{
+width:15%;
+
+}
 
 /* ============================
    17-Responsive

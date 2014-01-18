@@ -74,7 +74,10 @@ header
                 =================================-->
 
                 <section id="page-head">
+                  <div class='wrapper_blue'>
                     <h1><a href='/blogmain'>Radical Blog</a></h1>
+                    <h4>An indie dev studio looking at the exciting future</h4>
+                  </div>
                 </section>
                 {% if user.is_staff %}
                 <a href="{% url "admin:index" %}">Admin for {{ user.username }}</a>
@@ -135,7 +138,7 @@ header
 <!--=================================
  Footer
  =================================-->
-<footer> <p><img src='{{ STATIC_URL }}assets/img/radlogo_5.png'></p>
+<footer> <p><img src='{{ STATIC_URL }}assets/img/radicallogo.png'></p>
   <p>©MMXIV Radical Graphics Studios . All rights reserved. </p></footer>
 
 <!--=================================
