@@ -32,6 +32,10 @@ def post(request, pk):
     post = Post.objects.get(pk=pk)
     comments = Comment.objects.filter(post=post)
     
+    ## we update the view count
+    post.views = post.views + 1
+    post.save()
+
     context={'post':post,
              'comments':comments,
              'form':CommentForm(),

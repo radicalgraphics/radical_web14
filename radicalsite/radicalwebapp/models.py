@@ -13,6 +13,7 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User)
     image = models.ImageField(upload_to="media/img/blog", default="")
+    views = models.IntegerField(default=0)
     def __unicode__(self):
         return self.title 
 

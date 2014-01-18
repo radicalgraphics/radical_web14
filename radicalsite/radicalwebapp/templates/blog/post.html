@@ -15,8 +15,14 @@ Blog
                     <div class="post-visual">
                         <img src="{{ post.image.url  }}" alt="">
                         <div class="comment-count">
-                            <b class="icon-comment"></b>
+                            <b class="icon-comment" title=' {{ post.comment_set.count }} comments'></b>
                             <span>{{ post.comment_set.count }}</span>
+                        </div>
+                        <div class="views-count">
+                                   
+                                        <b class="icon-eye-open" title='{{ post.views }} views'></b>
+                                        <span>{{ post.views }}</span>
+                                   
                         </div>
                     </div>
                     
