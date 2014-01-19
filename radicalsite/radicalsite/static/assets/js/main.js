@@ -240,7 +240,7 @@
         transitionSpeed: 500,
     });
 
-    $("a[data-rel^='prettyPhoto']").prettyPhoto();
+    //$("a[data-rel^='prettyPhoto']").prettyPhoto();
 
     /*===================
     7 - Animations

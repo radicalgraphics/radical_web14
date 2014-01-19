@@ -36,15 +36,13 @@ Style Sheets
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}assets/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}assets/css/flexslider.css">
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}assets/css/animate.css">
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}assets/css/prettyPhoto.css">
+<!-- <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}assets/css/prettyPhoto.css"> -->
 <link rel="stylesheet" href="{{ STATIC_URL }}assets/css/main.css">
+<link rel="stylesheet" href="{{ STATIC_URL }}assets/css/jquery.fancybox.css">
+<link rel="stylesheet" href="{{ STATIC_URL }}assets/css/jquery.fancybox-buttons.css">
+<link rel="stylesheet" href="{{ STATIC_URL }}assets/css/jquery.fancybox-thumbs.css">
 
 <link rel="shortcut icon" href="{{ STATIC_URL }}assets/favicon.ico">
-
-
-
-<script src="{{ STATIC_URL }}assets/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-<script src='{{ STATIC_URL }}dajax/jquery.dajax.core.js'></script>
 
 {% dajaxice_js_import %}
 
@@ -272,7 +270,7 @@ Services
     <li id="filter5" data-filter="user experience">User Experience</li>
   </ul>
   <div id="Grid" class="project-wrapper">
-
+    
     <div id='portfolio_pics'></div>
 
   </div>
@@ -396,6 +394,8 @@ Script Source
 =================================--> 
 
 <script src="{{ STATIC_URL }}assets/js/jquery-1.9.js"></script> 
+<script src="{{ STATIC_URL }}assets/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+<script src='{{ STATIC_URL }}dajax/jquery.dajax.core.js'></script>
 <script src="{{ STATIC_URL }}assets/js/jquery.mixitup.min.js"></script> 
 <script src="{{ STATIC_URL }}assets/js/bootstrap.min.js"></script> 
 <script src="{{ STATIC_URL }}assets/js/jquery.easing-1.3.pack.js"></script> 
@@ -405,8 +405,15 @@ Script Source
 <script src="{{ STATIC_URL }}assets/js/masonry.pkgd.min.js"></script>
 <script src="{{ STATIC_URL }}assets/js/jquery.carouFredSel-6.2.1-packed.js"></script> 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script> 
-<script src="{{ STATIC_URL }}assets/js/jquery.prettyPhoto.js"></script>
 <script src="{{ STATIC_URL }}assets/js/main.js"></script>
+<!-- <script src="{{ STATIC_URL }}assets/js/jquery.fancybox.js"></script> -->
+<script src="{{ STATIC_URL }}assets/js/jquery.fancybox.pack.js"></script>
+<script src="{{ STATIC_URL }}assets/js/jquery.fancybox-buttons.js"></script>
+<script src="{{ STATIC_URL }}assets/js/jquery.fancybox-thumbs.js"></script>
+
+
+<!-- <script src="{{ STATIC_URL }}assets/js/jquery.prettyPhoto.js"></script> -->
+
 
 <script>
   
@@ -415,6 +422,8 @@ Script Source
   var tag = "all";
   $("#portfolio_pics").load(Dajaxice.radicalwebapp.get_portfolio(Dajax.process,{'page': {{ page }}, 'tag': tag }));
   
+  //jQuery('a.clrbox').colorbox();
+ 
   $("#filter1").click(function (event){
     event.stopPropagation();
     var tag = $(this).attr('data-filter');
@@ -482,10 +491,15 @@ Script Source
 
   function get_portfolio(page, tag){
     
-  $("#portfolio_pics").html('<div class="pagination-centered"><img src="{{ STATIC_URL }}assets/img/Our_work/ajax-spinner.GIF"></div>');
-    
+    $("#portfolio_pics").html('<div class="pagination-centered"><img src="{{ STATIC_URL }}assets/img/Our_work/ajax-spinner.GIF"></div>');
+
     Dajaxice.radicalwebapp.get_portfolio(Dajax.process,{'page':page, 'tag':tag});
     $('#Grid').mixitup('remix','all'); 
+
+    
+    // jQuery.ajaxStop(function(){
+    //   $("a[rel^='prettyPhoto']").prettyPhoto();
+    // });
 
     // check_load_more_button();
 
@@ -522,7 +536,12 @@ Script Source
     $("#filter5").removeClass('hover-color');
     Dajaxice.radicalwebapp.get_portfolio(Dajax.process,{'page':new_page, 'tag':tag});
     $('#Grid').mixitup('remix','all'); 
+    
   }
+
+  
+
+
 
 </script>
 

@@ -36,9 +36,11 @@ def get_portfolio(request, page, tag):
 		html += "	<div class='hover'>"
 		html += "		<h5>" + pic.platform + "</h5>"
 		html += "		<p>" + pic.name + "</p>"
-		html += "		<a href='" + pic.image.url + "' data-rel='prettyPhoto' class='btn'><b class='icon-search'></b></a>"
+		html += "		<a href='" + pic.image.url + "' class='btn fancybox'><b class='icon-search'></b></a>"
 		html += "	</div>"
 		html += "</div>"
+
+
 
 	if (portfolio_length<ids_to_get_to):
 		ids_to_get_to = portfolio_length
@@ -46,7 +48,10 @@ def get_portfolio(request, page, tag):
 	html += "<input type='hidden' value='" + str(page) + "' id='next_page'>"
 	html += "<input type='hidden' value='" + str(ids_to_get_to) + "' id='last_id'>"
 	html += "<input type='hidden' value='" + str(portfolio_length) + "' id='portfolio_length'>"
+	html += "<script>eval($('.fancybox').fancybox({closeBtn  : true,}))</script>"
 
 	dajax.assign('#portfolio_pics', 'innerHTML', html)
+	
+	
 
 	return dajax.json()
