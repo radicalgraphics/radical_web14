@@ -411,10 +411,6 @@ Script Source
 <script src="{{ STATIC_URL }}assets/js/jquery.fancybox-buttons.js"></script>
 <script src="{{ STATIC_URL }}assets/js/jquery.fancybox-thumbs.js"></script>
 
-
-<!-- <script src="{{ STATIC_URL }}assets/js/jquery.prettyPhoto.js"></script> -->
-
-
 <script>
   
   $("#filter1").addClass('hover-color');
@@ -422,8 +418,7 @@ Script Source
   var tag = "all";
   $("#portfolio_pics").load(Dajaxice.radicalwebapp.get_portfolio(Dajax.process,{'page': {{ page }}, 'tag': tag }));
   
-  //jQuery('a.clrbox').colorbox();
- 
+
   $("#filter1").click(function (event){
     event.stopPropagation();
     var tag = $(this).attr('data-filter');
@@ -496,35 +491,8 @@ Script Source
     Dajaxice.radicalwebapp.get_portfolio(Dajax.process,{'page':page, 'tag':tag});
     $('#Grid').mixitup('remix','all'); 
 
-    
-    // jQuery.ajaxStop(function(){
-    //   $("a[rel^='prettyPhoto']").prettyPhoto();
-    // });
-
-    // check_load_more_button();
-
   }
   
-  // function check_load_more_button(){
-
-  //   var last = $('#last_id').attr("value");
-  //   last = parseInt(last);
-  //   console.log(last, "Last");
-
-  //   var portfolio = $('#portfolio_length').attr("value");
-  //   portfolio = parseInt(portfolio);
-  //   console.log(portfolio, "Portfolio");
-
-  //   if (last<portfolio)
-  //   {
-  //     document.getElementById("load_more_button").style.visibility="visible";
-  //   }
-  //   else
-  //   {
-  //    document.getElementById("load_more_button").style.visibility="hidden"; 
-  //   }    
-  // }
-
   function increase_page(){
     var page = $('#next_page').val();
     var new_page = parseInt(page) + 1;
@@ -539,17 +507,8 @@ Script Source
     
   }
 
-  
-
-
-
 </script>
 
-
-
-
-
 </body>
-
 
 </html>
