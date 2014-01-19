@@ -273,8 +273,7 @@ Services
   </ul>
   <div id="Grid" class="project-wrapper">
 
-
-      <div id='portfolio_pics'></div>
+    <div id='portfolio_pics'></div>
 
   </div>
   <div class="clearfix"></div>
@@ -410,6 +409,8 @@ Script Source
 <script src="{{ STATIC_URL }}assets/js/main.js"></script>
 
 <script>
+  
+  $("#filter1").addClass('hover-color');
 
   var tag = "all";
   $("#portfolio_pics").load(Dajaxice.radicalwebapp.get_portfolio(Dajax.process,{'page': {{ page }}, 'tag': tag }));
@@ -480,6 +481,8 @@ Script Source
   });
 
   function get_portfolio(page, tag){
+    
+  $("#portfolio_pics").html('<div class="pagination-centered"><img src="{{ STATIC_URL }}assets/img/Our_work/ajax-spinner.GIF"></div>');
     
     Dajaxice.radicalwebapp.get_portfolio(Dajax.process,{'page':page, 'tag':tag});
     $('#Grid').mixitup('remix','all'); 
