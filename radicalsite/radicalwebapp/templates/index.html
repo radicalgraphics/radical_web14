@@ -527,11 +527,11 @@ Script Source
     var page = $('#next_page').val();
     var new_page = parseInt(page) + 1;
     $('#next_page').val(new_page);
-    $("#filter1").addClass('hover-color');
-    $("#filter2").removeClass('hover-color');
-    $("#filter3").removeClass('hover-color');
-    $("#filter4").removeClass('hover-color');
-    $("#filter5").removeClass('hover-color');
+    // $("#filter1").addClass('hover-color');
+    // $("#filter2").removeClass('hover-color');
+    // $("#filter3").removeClass('hover-color');
+    // $("#filter4").removeClass('hover-color');
+    // $("#filter5").removeClass('hover-color');
     Dajaxice.radicalwebapp.get_portfolio(Dajax.process,{'page':new_page, 'tag':tag});
     $('#Grid').mixitup('remix','all'); 
     
