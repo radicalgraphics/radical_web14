@@ -20,7 +20,7 @@ def get_portfolio(request, page, tag):
 		pictures = Portfolio.objects.all().order_by('-featured')
 		portfolio_length = Portfolio.objects.all().count()
 	else:
-		pictures = Portfolio.objects.filter(tag=tag).all().order_by('featured')
+		pictures = Portfolio.objects.filter(tag=tag).all().order_by('-featured')
 		portfolio_length = Portfolio.objects.filter(tag=tag).count()
 	
 	html = ""
