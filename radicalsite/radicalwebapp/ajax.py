@@ -25,10 +25,16 @@ def get_portfolio(request, page, tag):
 	
 	html = ""
 	for pic in pictures[ids_to_get_from:ids_to_get_to]:
+		
+		str_len = len(pic.name)
+		if str_len > 15:
+			pic_name = pic.name[0:15] + "..."
+		else:
+			pic_name = pic.name
 
 		html += "<div class='project " + pic.tag + " mix_all' style='display: inline-block; opacity: 1;'> <img src='" + pic.image.url + "' alt=''>"
 		html += "	<div class='hover'>"
-		html += "		<h5>" + pic.name + "</h5>"
+		html += "		<h5>" + pic_name + "</h5>"
 		html += "		<p>" + pic.platform + "</p>"
 		html += "		<a href='" + pic.image_big.url + "' class='btn fancybox' title='"+ pic.name + " - " + pic.platform + "'><b class='icon-search'></b></a>"
 		html += "	</div>"
