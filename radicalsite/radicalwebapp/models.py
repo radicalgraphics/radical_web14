@@ -47,10 +47,11 @@ class Portfolio(models.Model):
         ('user experience', 'User Experience'),
     )
 
-    name = models.CharField(max_length=250)
+    name = models.CharField('Name', max_length=250)
     platform = models.CharField(max_length=250)
     tag = models.CharField(max_length=16, choices=TAGS)
     image = models.ImageField(upload_to="media/img/Our_work", default="")
+    image_big = models.ImageField(upload_to="media/img/Our_work", default="")
     featured = models.IntegerField(default=0)
 
     def __unicode__(self):

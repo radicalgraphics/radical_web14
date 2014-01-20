@@ -17,10 +17,10 @@ def get_portfolio(request, page, tag):
 	ids_to_get_from = ((int(page) - 1) * 8)
 
 	if (tag == "all"):
-		pictures = Portfolio.objects.all()
+		pictures = Portfolio.objects.all().order_by('-featured')
 		portfolio_length = Portfolio.objects.all().count()
 	else:
-		pictures = Portfolio.objects.filter(tag=tag).all()
+		pictures = Portfolio.objects.filter(tag=tag).all().order_by('featured')
 		portfolio_length = Portfolio.objects.filter(tag=tag).count()
 	
 	html = ""
@@ -28,9 +28,9 @@ def get_portfolio(request, page, tag):
 
 		html += "<div class='project " + pic.tag + " mix_all' style='display: inline-block; opacity: 1;'> <img src='" + pic.image.url + "' alt=''>"
 		html += "	<div class='hover'>"
-		html += "		<h5>" + pic.platform + "</h5>"
-		html += "		<p>" + pic.name + "</p>"
-		html += "		<a href='" + pic.image.url + "' class='btn fancybox' title='"+ pic.name + " - " + pic.platform + "'><b class='icon-search'></b></a>"
+		html += "		<h5>" + pic.name + "</h5>"
+		html += "		<p>" + pic.platform + "</p>"
+		html += "		<a href='" + pic.image_big.url + "' class='btn fancybox' title='"+ pic.name + " - " + pic.platform + "'><b class='icon-search'></b></a>"
 		html += "	</div>"
 		html += "</div>"
 
@@ -43,13 +43,23 @@ def get_portfolio(request, page, tag):
 	html += "<script>"
 	html += "	eval($('.fancybox')"
 	html += "		.fancybox({"
+	html += "			fitToView : false,"
+	html += "			autoResize : true,"
+	html += "			maxHeight : '80%',"
+	html += "			overlayShow : true,"
+	html += "			overlayOpacity : 0.5,"
 	html += " 			padding : 0,"
 	html += " 			openEffect:'elastic',"
 	html += " 			closeBtn  : true,"
-	html += " 			helpers:{"
+	html += " 			helpers : {"
 	html += "				title:{"
 	html += "					type : 'over'"
-	html += "				}"
+	html += "				},"
+	html += "				overlay : {"
+	html += "					css : {"
+	html += "						'background' : 'rgba(0,0,0,0.8)',"
+	html += "					}"
+	html += "				},"
 	html += "			}"
 	html += "		})"
 	html += "	)"
