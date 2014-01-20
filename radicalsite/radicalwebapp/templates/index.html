@@ -290,17 +290,17 @@ Services
     </div>
     <div class="carousel-nav"> <a id="member-prev" href="#" class="prev"><span class=" icon-angle-left"></span></a> <a id="member-next" href="#" class="next"><span class=" icon-angle-right"></span></a> </div>
     <div class="team-wrapper">
-      <div class="member"> <img src="{{ STATIC_URL }}assets/img/team/suitup3.jpg" alt="">
+      <div class="member"> <img src="{{ STATIC_URL }}assets/img/team/suitup3_b.jpg" alt="">
         <div class="hover">
           <h2>Jose Gomez de Lara</h2>
-          <h5>CTO</h5>
-          <p>Mauris laoreet, lectus tempus placerat moll orci augue pretium dui eget pharetra lorem tellus at</p>
+          <h5>Cofounder - CTO</h5>
+          <p>Game Industry senior, former Microsoft and Sony engineer. Experience as Designer and Producer.</p>
           <ul class="social-fonts">
-            <li><a href="#"><span class="icon-facebook"></span></a></li>
-            <li ><a href="#"><span class="icon-twitter"></span></a></li>
-            <li ><a href="#"><span class="icon-pinterest"></span></a></li>
-            <li ><a href="#"><span class="icon-linkedin"></span></a></li>
-            <li ><a href="#"><span class=" icon-google-plus"></span></a></li>
+            <!-- <li><a href="#"><span class="icon-facebook"></span></a></li> -->
+            <li ><a href="http://www.twitter.com/bochelord" target='_blank'><span class="icon-twitter"></span></a></li>
+           <!--  <li ><a href="#"><span class="icon-pinterest"></span></a></li> -->
+            <li ><a href="http://nl.linkedin.com/in/josegomezdelara/" target='_blank'><span class="icon-linkedin"></span></a></li>
+            <!-- <li ><a href="#"><span class=" icon-google-plus"></span></a></li> -->
           </ul>
         </div>
       </div>
@@ -350,12 +350,9 @@ Services
         <p>Mauris laoreet, lectus tempus placerat mollis, orci augue pretium dui, eget pharetra lorem tellus at sapien. Mauris vitae venenatis augue, eu malesuada mi. </p>
         <h2>socialize with us</h2>
         <ul class="social-fonts">
-          <li><a href="#"><span class="icon-facebook"></span></a></li>
-          <li ><a href="#"><span class="icon-twitter"></span></a></li>
-          <li ><a href="#"><span class="icon-pinterest"></span></a></li>
-          <li ><a href="#"><span class="icon-linkedin"></span></a></li>
-          <li ><a href="#"><span class=" icon-tumblr"></span></a></li>
-          <li ><a href="#"><span class=" icon-dribbble"></span></a></li>
+          <li ><a href="http://www.twitter.com/radicalgraph1cs"><span class="icon-twitter"></span></a></li>
+          <li><a href="https://www.facebook.com/radicalgraphics" target='_blank'><span class="icon-facebook"></span></a></li>
+          <li ><a href="http://www.linkedin.com/company/radical-graphics-studios"><span class="icon-linkedin"></span></a></li>
         </ul>
       </div>
       <div class="col-lg-4 col-md-5 col-sm-5">
@@ -412,6 +409,10 @@ Script Source
 <script src="{{ STATIC_URL }}assets/js/jquery.fancybox-buttons.js"></script>
 <script src="{{ STATIC_URL }}assets/js/jquery.fancybox-thumbs.js"></script>
 
+
+<!-- <script src="{{ STATIC_URL }}assets/js/jquery.prettyPhoto.js"></script> -->
+
+
 <script>
   
   $("#filter1").addClass('hover-color');
@@ -419,7 +420,8 @@ Script Source
   var tag = "all";
   $("#portfolio_pics").load(Dajaxice.radicalwebapp.get_portfolio(Dajax.process,{'page': {{ page }}, 'tag': tag }));
   
-
+  //jQuery('a.clrbox').colorbox();
+ 
   $("#filter1").click(function (event){
     event.stopPropagation();
     var tag = $(this).attr('data-filter');
@@ -492,8 +494,35 @@ Script Source
     Dajaxice.radicalwebapp.get_portfolio(Dajax.process,{'page':page, 'tag':tag});
     $('#Grid').mixitup('remix','all'); 
 
+    
+    // jQuery.ajaxStop(function(){
+    //   $("a[rel^='prettyPhoto']").prettyPhoto();
+    // });
+
+    // check_load_more_button();
+
   }
   
+  // function check_load_more_button(){
+
+  //   var last = $('#last_id').attr("value");
+  //   last = parseInt(last);
+  //   console.log(last, "Last");
+
+  //   var portfolio = $('#portfolio_length').attr("value");
+  //   portfolio = parseInt(portfolio);
+  //   console.log(portfolio, "Portfolio");
+
+  //   if (last<portfolio)
+  //   {
+  //     document.getElementById("load_more_button").style.visibility="visible";
+  //   }
+  //   else
+  //   {
+  //    document.getElementById("load_more_button").style.visibility="hidden"; 
+  //   }    
+  // }
+
   function increase_page(){
     var page = $('#next_page').val();
     var new_page = parseInt(page) + 1;
@@ -508,8 +537,17 @@ Script Source
     
   }
 
+  
+
+
+
 </script>
 
+
+
+
+
 </body>
+
 
 </html>
