@@ -566,6 +566,10 @@ box-shadow: 0px 1px 10px 0px rgba(50,50,50,1);
 	/*background:#2d3538;*/
 	background: url(../img/BG/footerbg.jpg) repeat;
 	padding-top:45px;
+	
+	-webkit-box-shadow: inset 0px -8px 12px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 0px -8px 12px 0px rgba(0,0,0,0.75);
+	box-shadow: inset 0px -8px 12px 0px rgba(0,0,0,0.75);
 }
 #services h1{
 	color:#fff;
@@ -605,6 +609,7 @@ box-shadow: 0px 1px 10px 0px rgba(50,50,50,1);
 	background:#f4fbfd;
 	padding-top:45px;
 	
+	
 }
 
 
@@ -615,6 +620,7 @@ box-shadow: 0px 1px 10px 0px rgba(50,50,50,1);
 	padding-top:70px;
 	padding-bottom:30px;
 	display:table;
+
 }
 
 .record{
@@ -630,6 +636,7 @@ box-shadow: 0px 1px 10px 0px rgba(50,50,50,1);
 	-khtml-opacity: 0;
 	position:relative;
 	text-align:center;
+
 }
 
 .record:last-child{
@@ -1777,8 +1784,8 @@ footer{
 	padding-bottom:65px;
 	background: url(../img/BG/footerbg.jpg) repeat;
 	-webkit-box-shadow: inset 0px 8px 12px 0px rgba(0,0,0,0.75);
--moz-box-shadow: inset 0px 8px 12px 0px rgba(0,0,0,0.75);
-box-shadow: inset 0px 8px 12px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 0px 8px 12px 0px rgba(0,0,0,0.75);
+	box-shadow: inset 0px 8px 12px 0px rgba(0,0,0,0.75);
 	
 }
 #contact h2{
@@ -2294,5 +2301,26 @@ ul.navbar-nav{
 	background:url(../img/icons/fire.png) no-repeat center center;
 	width:73px;
 	height:98px;
+	display:block;
+}
+
+.rocketIcon{
+	background:url(../img/icons/rocket.png) no-repeat center center;
+	width:64px;
+	height:104px;
+	display:block;
+}
+
+.cogIcon{
+	background:url(../img/icons/cog.png) no-repeat center center;
+	width:95px;
+	height:95px;
+	display:block;
+}
+
+.rockingIcon{
+	background:url(../img/icons/rocking.png) no-repeat center center;
+	width:60px;
+	height:90px;
 	display:block;
 }
