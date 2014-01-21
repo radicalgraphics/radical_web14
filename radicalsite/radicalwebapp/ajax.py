@@ -1,12 +1,15 @@
 # Functions controlling the AJAX requests
 # (c) 2013 Radical Graphics Studios
-from radicalwebapp.models import Portfolio
+from radicalwebapp.models import Portfolio, HowWeWork
 from dajax.core import Dajax
 from dajaxice.core import dajaxice_functions
 from dajaxice.decorators import dajaxice_register
 
+
 from django.core.mail import send_mail
-from django.utils.html import escape
+
+from django.shortcuts import get_object_or_404
+
 
 from radicalwebapp import views
 from django.conf import settings
@@ -85,6 +88,7 @@ def get_portfolio(request, page, tag):
 
 
 
+
 @dajaxice_register
 def send_message(request, subject, mailbody, from_mail):
 
@@ -106,3 +110,19 @@ def send_message(request, subject, mailbody, from_mail):
 	
 
 	return dajax.json()
+
+@dajaxice_register
+def increase_rocks(request):
+
+	dajax = Dajax()
+
+	how_we_work = get_object_or_404(HowWeWork)
+	how_we_work.we_rock += 1
+	how_we_work.save()
+
+	dajax.assign('#increase_rock_value', 'data-total', how_we_work.we_rock)
+	dajax.assign('#increase_rock_value', 'innerHTML', how_we_work.we_rock)
+	dajax.assign('#yeah_button', 'innerHTML', "Rock On!")
+
+	return dajax.json()
+

@@ -172,28 +172,29 @@ About-us
       </div>
       <div class="records-wrapper">
         <div class="record animate1"> <span class="coffeecupIcon"></span>
-          <h5><span data-total="1587" class="stat"></span>Cup of coffee <br>
+          <h5><span data-total="{{ how_we_work.coffees }}" class="stat"></span>Cup of coffee <br>
             consumed</h5>
           <div class="clearfix"></div>
         </div>
         <!--\\record-->
         
         <div class="record animate2"> <span class="cogIcon"></span>
-          <h5><span data-total="45" class="stat"></span>Applied <br>
+          <h5><span data-total="{{ how_we_work.technologies }}" class="stat"></span>Applied <br>
             Technologies</h5>
           <div class="clearfix"></div>
         </div>
         <!--\\record-->
         
         <div class="record animate3"> <span class="rocketIcon"></span>
-          <h5><span data-total="38" class="stat"></span>Projects <br>
+          <h5><span data-total='{{ how_we_work.projects }}' class="stat"></span>Projects <br>
             Launched</h5>
           <div class="clearfix"></div>
         </div>
         <!--\\record-->
         
         <div class="record animate4"> <span class="rockingIcon"></span>
-          <h5><span data-total="25" class="stat"></span>say that we rock!<br> will you? <a class='btn' href='#'>yeah!</a></h5>
+          <h5><span id="increase_rock_value" data-total="{{ how_we_work.we_rock }}" class="stat"></span>Say that we rock!<br>Will you?</h5>
+          <a id="yeah_button" class='btn yeah-button' onclick="increase_rocks();">yeah!</a>
           <div class="clearfix"></div>
         </div>
         <!--\\record--> 
@@ -537,6 +538,7 @@ Script Source
     
   }
 
+
   /*===================
     Contact jscript
     ===================*/
@@ -569,13 +571,16 @@ Script Source
 
 
 
+  function increase_rocks(){
+    Dajaxice.radicalwebapp.increase_rocks(Dajax.process);
+    document.getElementById("yeah_button").setAttribute("disabled", "disabled");
+    document.getElementById("yeah_button").style.backgroundColor = '#b2b8ba';
+    document.getElementById("yeah_button").style.borderBottomColor = '#9a958d';
+  }  
+
+
 </script>
 
-
-
-
-
 </body>
-
 
 </html>

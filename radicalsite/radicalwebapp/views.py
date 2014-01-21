@@ -138,9 +138,14 @@ def main(request):
 
 def home(request):
 
-	page = 1
-	context = {'page': page}
+    how_we_work = get_object_or_404(HowWeWork)
 
-	return render(request, 'index.html', context)
+    page = 1
+
+    context = { 'page': page,
+                'how_we_work':how_we_work
+                }
+
+    return render(request, 'index.html', context)
 
 

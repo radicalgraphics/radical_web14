@@ -57,6 +57,15 @@ class Portfolio(models.Model):
     def __unicode__(self):
         return ' Name: ' + self.name + ' Platform: ' + self.platform + ' Tags: ' + self.tag + ' Featured: ' + str(self.featured)
 
+class HowWeWork(models.Model):
+    coffees = models.IntegerField(default=0)
+    technologies = models.IntegerField(default=0)
+    projects = models.IntegerField(default=0)
+    we_rock = models.IntegerField(default=0)
+
+    def __unicode__(self):
+        return ' Coffees: ' + str(self.coffees) + ' - Technologies: ' + str(self.technologies) + ' - Projects: ' + str(self.projects) + ' - We Rocks: ' + str(self.we_rock)
+
 ### Admin
 
 class PostAdmin(admin.ModelAdmin):
