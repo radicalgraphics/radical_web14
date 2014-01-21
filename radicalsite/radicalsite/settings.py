@@ -117,6 +117,20 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
+
+# Settings for mail
+# Trying to send through our account on gmail
+EMAIL_USE_TLS = False
+EMAIL_HOST = 'mail.radicalgraphics.com'
+
+EMAIL_HOST_USER = 'ksir@radicalgraphics.com'
+EMAIL_HOST_PASSWORD = 'radical'
+
+EMAIL_PORT = 25
+
+
+
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -166,6 +180,6 @@ LOGGING = {
 
 
 try:
-   from local_settings import *
+   from local_settings_BOCH import *
 except ImportError:
    pass

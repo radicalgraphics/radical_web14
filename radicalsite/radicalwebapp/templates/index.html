@@ -110,7 +110,7 @@ About-us
   <div class="container">
     <div class="section-head">
       <h1>What we do</h1>
-      <p>We imagine, design, develop, build and create entertainment software in several ways: Web Apps, Games and Gamification solutions. </p>
+      <p>We imagine, design, develop, build and create <strong>entertainment software</strong> in several ways: Web Apps, Games and Gamification solutions. </p>
     </div>
     <div class="carousel-nav"> <a id="phase-prev" href="#" class="prev"><span class=" icon-angle-left"></span></a> <a id="phase-next" href="#" class="next"><span class=" icon-angle-right"></span></a> </div>
     <div class="about-wrapper">
@@ -217,7 +217,7 @@ Services
         <div class="col-lg-6 col-md-6 col-sm-6">
           <div class="service"> <span class="mobileIcon"></span>
             <h2>Targeting the people not only the device</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris laoreet, lectus tempus placerat mollis, orci augue vitae venenatis augue, eu malesuada mi. </p>
+            <p>We crave for memorable experiences and we want to make it so for everything that we make. We have a high quality standard on the experience we create. We grew up with 8bit systems, we know what a great experience is like ;-) </p>
           </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6">
@@ -346,8 +346,8 @@ Services
   <div class="container">
     <div class="row">
       <div class="col-lg-3 col-md-3 col-sm-3">
-        <h2>About Radical Graphics</h2>
-        <p>Mauris laoreet, lectus tempus placerat mollis, orci augue pretium dui, eget pharetra lorem tellus at sapien. Mauris vitae venenatis augue, eu malesuada mi. </p>
+        <h2>About Us</h2>
+        <p>Indie Development Studio based in Amsterdam, Europe.<br> Games Industry veterans (AAA console & MMO) going indie to the exciting future: Unity, Ouya, Mobile, Web Apps, Gamification & Oculus Rift. </p>
         <h2>socialize with us</h2>
         <ul class="social-fonts">
           <li ><a href="http://www.twitter.com/radicalgraph1cs"><span class="icon-twitter"></span></a></li>
@@ -363,14 +363,14 @@ Services
         <h2>say hello!</h2>
         <a href="#">info@radicalgraphics.com</a>
         <div class="contactus">
-            <form id="contactform" action="http://nasfactor.com/themes/maximus/assets/php/submit.php" method="post">
+            <form id="contactform" action="" method="post">
               <input type="text" name="name" id="name" placeholder="Your Name:">
               <input type="text" name="email" id="email" placeholder="Your Email:">
               <input type="text" name="subject" id="subject" placeholder="Subject:">
               <textarea name="message" id="message" placeholder="Your Message:"></textarea>
-              <input class="btn" id="submit" type="submit" value="Submit">
+              <input class="btn" id="submit" type="submit" value="¡Hola!">
             </form>
-            <div id="valid-issue" style="display:none;"> Please Provide Valid Information</div>
+            <div id="valid-issue" style="display:none;"></div>
         </div>
       </div>
     </div>
@@ -537,6 +537,34 @@ Script Source
     
   }
 
+  /*===================
+    Contact jscript
+    ===================*/
+
+    function IsEmail(email) {
+        var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        return regex.test(email);
+    }
+
+
+    $("#contactform").submit(function () {
+        var name = $("#name").val();
+        var email = $("#email").val();
+        var subject = $("#subject").val();
+        var message = $("#message").val();
+        var dataString = 'name=' + name + '&email=' + email + '&subject=' + subject + '&message=' + message;
+
+        if (name === '' || !IsEmail(email) || subject === '' || message === '') {
+            $('#valid-issue').html('<div class="label label-info">Please Say Something Proper</div>').show();
+        } 
+
+        else {
+            $("#contactform").html('<div class="pagination-centered"><img src="{{ STATIC_URL }}assets/img/Our_work/ajax-spinner-white.GIF"></div>');
+            Dajaxice.radicalwebapp.send_message(Dajax.process,{'subject': 'de: ' + name + ' sobre: ' + subject, 'mailbody':message, 'from_mail': email });
+            
+        }
+        return false;
+    });
   
 
 

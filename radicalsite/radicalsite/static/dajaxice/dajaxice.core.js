@@ -13,6 +13,10 @@ var Dajaxice = {
         return Dajaxice.call('radicalwebapp.get_portfolio', 'POST', callback_function, argv, custom_settings);
     },
     
+    send_message: function(callback_function, argv, custom_settings){
+        return Dajaxice.call('radicalwebapp.send_message', 'POST', callback_function, argv, custom_settings);
+    },
+
     }
     
 ,

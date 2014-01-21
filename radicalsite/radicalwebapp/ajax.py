@@ -5,6 +5,9 @@ from dajax.core import Dajax
 from dajaxice.core import dajaxice_functions
 from dajaxice.decorators import dajaxice_register
 
+from django.core.mail import send_mail
+from django.utils.html import escape
+
 from radicalwebapp import views
 from django.conf import settings
 
@@ -71,6 +74,35 @@ def get_portfolio(request, page, tag):
 	html += "	)"
 	html += "</script>"
 
+	# html += "<script>"
+	# html += "eval($('#Grid').mixitup('remix','all'))"
+	# html += "</script>"
+	
+
 	dajax.assign('#portfolio_pics', 'innerHTML', html)
+
+	return dajax.json()
+
+
+
+@dajaxice_register
+def send_message(request, subject, mailbody, from_mail):
+
+	dajax = Dajax()
+	# print "CORREO: "
+	# print 'subject: ' + subject
+	# print 'from: ' + from_mail
+	# print 'body: ' + mailbody
+
+	
+
+	send_mail(subject,mailbody,from_mail,['info@radicalgraphics.com'],fail_silently=False)
+
+	
+
+	html = '<h4>Thanks for your message!.<BR> We will contact you back as soon as possible :D</h4>'
+
+	dajax.assign('#contactform','innerHTML',html)
+	
 
 	return dajax.json()
