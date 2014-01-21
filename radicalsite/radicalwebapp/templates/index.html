@@ -110,7 +110,7 @@ About-us
   <div class="container">
     <div class="section-head">
       <h1>What we do</h1>
-      <p>We imagine, design, develop, build and create <strong>entertainment software</strong> in several ways: Web Apps, Games and Gamification solutions. </p>
+      <p>We imagine, design, develop, test and create <strong>entertainment software</strong> in several ways: Web Apps, Games and Gamification solutions. </p>
     </div>
     <div class="carousel-nav"> <a id="phase-prev" href="#" class="prev"><span class=" icon-angle-left"></span></a> <a id="phase-next" href="#" class="next"><span class=" icon-angle-right"></span></a> </div>
     <div class="about-wrapper">
@@ -172,7 +172,7 @@ About-us
       </div>
       <div class="records-wrapper">
         <div class="record animate1"> <span class="coffeecupIcon"></span>
-          <h5><span data-total="{{ how_we_work.coffees }}" class="stat"></span>Cup of coffee <br>
+          <h5><span data-total="{{ how_we_work.coffees }}" class="stat"></span>Cups of coffee <br>
             consumed</h5>
           <div class="clearfix"></div>
         </div>
@@ -218,13 +218,13 @@ Services
         <div class="col-lg-6 col-md-6 col-sm-6">
           <div class="service"> <span class="mobileIcon"></span>
             <h2>Targeting the people not only the device</h2>
-            <p>We crave for memorable experiences and we want to make it so for everything that we make. We have a high quality standard on the experience we create. We grew up with 8bit systems, we know what a great experience is like ;-) </p>
+            <p>We crave for memorable experiences and we want to make it so for everything that we do. We have a high quality standards on the experience we create. We grew up with 8-bit systems, we know what a great experience is like ;-) </p>
           </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6">
           <div class="service"> <span class="screwIcon"></span>
             <h2>Hands on crafting</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris laoreet, lectus tempus placerat mollis, orci augue vitae venenatis augue, eu malesuada mi. </p>
+            <p>Condisering ourselves as code agnostics, we always try to build system as soon as possible in order to have a prototype ready. Following Agile methodologies and the latests technologies available, we have no fear on getting our hands dirty with new projects. Just name it: HTML5, CSS3, Python, .NET, Java...   </p>
           </div>
         </div>
       </div>
@@ -234,7 +234,7 @@ Services
         <div class="col-lg-6 col-md-6 col-sm-6">
           <div class="service"> <span class="beakerIcon"></span>
             <h2>Gamification labs</h2>
-            <p>Mauris laoreet, lectus tempus placerat mollis, orci augue pretium dui, eget pharetra lorem tellus at sapien. Mauris vitae venenatis augue, eu malesuada mi. </p>
+            <p>Through this new technique, called gamification, we apply game mechanics to other environments aiming to solve problems, achieve better levels of engagement and promote desirable behaviours through fun. Improving the user experience through fun can succesfully motivate users ending up improving the overall experience of the product </p>
           </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6">
@@ -364,7 +364,7 @@ Services
         <h2>say hello!</h2>
         <a href="#">info@radicalgraphics.com</a>
         <div class="contactus">
-            <form id="contactform" action="" method="post">
+            <form id="contactform" action="" method="post">{% csrf_token %}
               <input type="text" name="name" id="name" placeholder="Your Name:">
               <input type="text" name="email" id="email" placeholder="Your Email:">
               <input type="text" name="subject" id="subject" placeholder="Subject:">
