@@ -12,6 +12,10 @@ var Dajaxice = {
     get_portfolio: function(callback_function, argv, custom_settings){
         return Dajaxice.call('radicalwebapp.get_portfolio', 'POST', callback_function, argv, custom_settings);
     },
+
+    increase_rocks: function(callback_function, argv, custom_settings){
+        return Dajaxice.call('radicalwebapp.increase_rocks', 'POST', callback_function, argv, custom_settings);
+    },
     
     }
     
