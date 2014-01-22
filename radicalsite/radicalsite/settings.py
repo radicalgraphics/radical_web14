@@ -145,7 +145,12 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'dajaxice',
     'dajax',
+    'redactor',
 )
+
+REDACTOR_OPTIONS = {'lang':'en'}
+REDACTOR_UPLOAD = 'media/'
+
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 

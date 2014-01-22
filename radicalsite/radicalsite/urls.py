@@ -33,4 +33,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
+
+    #Redactor URLS
+    url(r'^redactor/', include('redactor.urls')),
 )
