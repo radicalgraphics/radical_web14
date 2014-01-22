@@ -89,7 +89,7 @@ def get_portfolio(request, page, tag):
 
 
 
-@dajaxice_register
+@dajaxice_register(method='POST')
 def send_message(request, subject, mailbody, from_mail):
 
 	dajax = Dajax()
@@ -123,6 +123,8 @@ def increase_rocks(request):
 	dajax.assign('#increase_rock_value', 'data-total', how_we_work.we_rock)
 	dajax.assign('#increase_rock_value', 'innerHTML', how_we_work.we_rock)
 	dajax.assign('#yeah_button', 'innerHTML', "Rock On!")
-
+	dajax.remove_css_class('#rocking_icon','not_rockingIcon')
+	dajax.add_css_class('#rocking_icon','rockingIcon')
+	
 	return dajax.json()
 

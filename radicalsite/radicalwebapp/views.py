@@ -10,12 +10,15 @@ from django.shortcuts import render, get_object_or_404, render_to_response
 import time
 from calendar import month_name
 
+from django.middleware.csrf import get_token
+
 from django.http import HttpResponseRedirect, HttpResponse
 
 from django.contrib.auth.decorators import login_required
 from django.core.context_processors import csrf
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.urlresolvers import reverse
+from django.conf import settings
 
 from radicalwebapp.models import *
 from django.forms import ModelForm
@@ -40,10 +43,11 @@ def post(request, pk):
              'comments':comments,
              'form':CommentForm(),
              'user':request.user,
-             'csrf_token':csrf(request),
-
-
     }
+
+    #context.update(csrf(request))
+
+    #return render_to_response('blog/post.html', context)
 
     return render(request, 'blog/post.html', context)
 
@@ -112,6 +116,9 @@ def month(request, year, month):
 
 def main(request):
     """Main listing."""
+
+    get_token(request)
+
     posts = Post.objects.all().order_by("-created")
     paginator = Paginator(posts, 5)
     try: page = int(request.GET.get("page", '1'))
@@ -127,16 +134,23 @@ def main(request):
                 'user':request.user,
                 'post_list':posts.object_list,
                 'months':mkmonth_lst(),
+                'STATIC_URL' : settings.STATIC_URL
                 }
 
+    context.update(csrf(request))
+
+    return render_to_response('blog/list.html', context)
+
     #return render_to_response("blog/list.html", dict(posts=posts, user=request.user,post_list=posts.object_list, months=mkmonth_lst()))
-    return render(request, 'blog/list.html', context)
+    #return render(request, 'blog/list.html', context)
 
 
 
 #### fin de blog
 
 def home(request):
+
+    get_token(request)
 
     how_we_work = get_object_or_404(HowWeWork)
 

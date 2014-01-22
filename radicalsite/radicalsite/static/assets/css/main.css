@@ -2351,3 +2351,10 @@ ul.navbar-nav{
 	height:90px;
 	display:block;
 }
+
+.not_rockingIcon{
+	background:url(../img/icons/not_rocking.png) no-repeat center center;
+	width:60px;
+	height:90px;
+	display:block;
+}

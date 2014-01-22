@@ -8,7 +8,7 @@
 (function ($) {
     "use strict";
 
-    /*	Table OF Contents
+    /*	
 	==========================
 	
 	1-Navigation
