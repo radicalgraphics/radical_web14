@@ -41,7 +41,7 @@ Blog
                                     <li><a href="#">Graphics</a></li>
                                 </ul>
                             </div>
-                            <p>{{ post.body|truncatewords:40 }}</p>
+                            <p>{{ post.body|truncatewords:40|safe }}</p>
                             <a href="{% url 'radicalwebapp.views.post' post.pk %}">Read more<i class="icon-angle-right"></i></a>
                         </div>
                     </div><!--row-->
