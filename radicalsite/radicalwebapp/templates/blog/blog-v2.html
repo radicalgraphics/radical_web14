@@ -99,10 +99,10 @@ Blog
                     
 					<div class="post-info">by <a href="#">John doe</a> in 
                     	<ul>
-                        	<li><a href="#">Standard Post</a></li>
-                            <li><a href="#">Design</a></li>
-                            <li><a href="#">Graphics</a></li>
-                        </ul>
+                        {% for etiqueta in post.tag.all %}
+                          <li><a href="#">{{ etiqueta.tag }}</a></li>
+                        {% endfor %}
+                      </ul>
                     </div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris laoreet, lectus tempus placerat mollis, orci augue pretium dui, eget pharetra lorem tellus at sapien. Mauris vitae venenatis augue, eu malesuada mi. </p>
                     <a href="#">Read more<i class="icon-angle-right"></i></a>

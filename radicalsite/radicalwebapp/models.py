@@ -7,24 +7,22 @@ from django.core.mail import send_mail
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
 
+class Tags(models.Model):
+
+    tag = models.CharField(max_length=100)
+
+    def __unicode__(self):
+        return self.tag
+
 class Post(models.Model):
 
-    TAGS = (
-        ('apps', 'Apps'),
-        ('games', 'Games'),
-        ('gamification', 'Gamification'),
-        ('ux', 'UX'),
-        ('design', 'Design'),
-        ('graphics', 'Graphics'),
-    )
     title = models.CharField(max_length=60)
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User)
     image = models.ImageField(upload_to="media/img/blog", default="")
     views = models.IntegerField(default=0)
-    tag = models.CharField(max_length=16, choices=TAGS)
-
+    tag = models.ManyToManyField('Tags', blank=True, null=True)
     def __unicode__(self):
         return self.title 
 

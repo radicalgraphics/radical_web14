@@ -36,9 +36,9 @@ Blog
                             
                             <div class="post-info">by <a href="#">{{post.author.username}}</a> in 
                                 <ul>
-                                    <li><a href="#">Standard Post</a></li>
-                                    <li><a href="#">Design</a></li>
-                                    <li><a href="#">Graphics</a></li>
+                                    {% for etiqueta in post.tag.all %}
+                                        <li><a href="#">{{ etiqueta.tag }}</a></li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                             <p>{{ post.body|truncatewords:40|safe }}</p>

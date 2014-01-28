@@ -31,9 +31,9 @@ Blog
                     <h2>{{ post.title }}</h2>
                     <div class="post-info">by <a href="#">{{ post.author.username }}</a> in 
                         <ul>
-                            <li><a href="#">Standard Post</a></li>
-                            <li><a href="#">Design</a></li>
-                            <li><a href="#">Graphics</a></li>
+                            {% for etiqueta in post.tag.all %}
+                                <li><a href="#">{{ etiqueta.tag }}</a></li>
+                            {% endfor %}
                         </ul>
                     </div>
                     <p>{{ post.body|safe }}</p>
@@ -51,9 +51,9 @@ Blog
                         </li>
                         <li><h5>Tags:</h5>
                             <ul>
-                                <li><a href="#">Webdesign</a></li>
-                                <li><a href="#">iphone</a></li>
-                                <li><a href="#">graphics</a></li>
+                                {% for etiqueta in post.tag.all %}
+                                    <li><a href="#">{{ etiqueta.tag }}</a></li>
+                                {% endfor %}
                             </ul>
                         </li>
                         

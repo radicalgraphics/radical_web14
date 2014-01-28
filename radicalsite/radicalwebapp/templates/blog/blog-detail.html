@@ -95,9 +95,9 @@ Blog
                     <h2>Standard Blog Post with image</h2>
                     <div class="post-info">by <a href="#">John doe</a> in 
                     	<ul>
-                        	<li><a href="#">Standard Post</a></li>
-                            <li><a href="#">Design</a></li>
-                            <li><a href="#">Graphics</a></li>
+                          {% for etiqueta in post.tag.all %}
+                              <li><a href="#">{{ etiqueta.tag }}</a></li>
+                          {% endfor %}
                         </ul>
                     </div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut lacus eget turpis tincidunt feugiat. Mauris dolor augue, pellentesque sit amet mollis nec, volutpat nec lorem. Nunc pretium a purus quis pharetra. Fusce in interdum neque. Donec nec aliquet libero, quis pharetra elit. Proin quis nibh at magna sollicitudin bibendum. Nullam tristique hendrerit libero. Sed nec erat tempor, bibendum erat pulvinar, molestie est. Donec a feugiat urna, vel accumsan elit. In sit amet diam a justo dignissim consectetur. Nunc in scelerisque libero.</p>
