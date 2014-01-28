@@ -8,12 +8,23 @@ from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
 
 class Post(models.Model):
+
+    TAGS = (
+        ('apps', 'Apps'),
+        ('games', 'Games'),
+        ('gamification', 'Gamification'),
+        ('ux', 'UX'),
+        ('design', 'Design'),
+        ('graphics', 'Graphics'),
+    )
     title = models.CharField(max_length=60)
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User)
     image = models.ImageField(upload_to="media/img/blog", default="")
     views = models.IntegerField(default=0)
+    tag = models.CharField(max_length=16, choices=TAGS)
+
     def __unicode__(self):
         return self.title 
 
