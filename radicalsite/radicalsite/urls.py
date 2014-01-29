@@ -25,7 +25,7 @@ urlpatterns = patterns('',
    url(r'^delete_comment/(\d+)/$', 'radicalwebapp.views.delete_comment', name="delete_comment"),
    url(r'^delete_comment/(\d+)/(\d+)/$', 'radicalwebapp.views.delete_comment',  name="delete_comment"),
    url(r'^month/(\d+)/(\d+)/$', 'radicalwebapp.views.month',  name="month"),
-   url(r'^blogmain/', 'radicalwebapp.views.main', name='main'),
+   url(r'^blog/', 'radicalwebapp.views.main', name='main'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
