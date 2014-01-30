@@ -5,7 +5,7 @@ from django.contrib import admin
 from django import forms
 from redactor.widgets import RedactorEditor
 
-from radicalwebapp.models import Portfolio, Post, PostAdmin, Comment, CommentAdmin, HowWeWork, Tags
+from radicalwebapp.models import Portfolio, Post, PostAdmin, Comment, CommentAdmin, HowWeWork, Tags, Author
 
 class PostAdminForm(forms.ModelForm):
 
@@ -24,3 +24,4 @@ admin.site.register(Comment, CommentAdmin)
 admin.site.register(Portfolio)
 admin.site.register(HowWeWork)
 admin.site.register(Tags)
+admin.site.register(Author)

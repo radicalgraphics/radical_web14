@@ -39,10 +39,14 @@ def post(request, pk):
     post.views = post.views + 1
     post.save()
 
+    post_user = request.user
+    author = Author.objects.get(user=post_user.id)
+
     context={'post':post,
              'comments':comments,
              'form':CommentForm(),
              'user':request.user,
+             'author':author,
     }
 
     #context.update(csrf(request))

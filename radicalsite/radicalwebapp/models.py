@@ -14,6 +14,16 @@ class Tags(models.Model):
     def __unicode__(self):
         return self.tag
 
+class Author(models.Model):
+
+    user = models.OneToOneField(User, primary_key=True)
+    photo = models.ImageField(upload_to="media/img/blog", default="")
+    photo_thumbnail = ImageSpecField(source='photo',
+                                      processors=[ResizeToFill(110, 110)],
+                                      format='JPEG',
+                                      options={'quality': 100})
+    description = models.TextField()
+
 class Post(models.Model):
 
     title = models.CharField(max_length=60)
