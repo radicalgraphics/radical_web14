@@ -18,6 +18,8 @@
     font-style: normal;
 }
 
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
+
 /*	Table OF Contents
 ==========================
 1-General Styles
@@ -1930,6 +1932,16 @@ footer{
 -moz-box-shadow: inset 0px 8px 12px 0px rgba(0,0,0,0.75);
 box-shadow: inset 0px 8px 12px 0px rgba(0,0,0,0.75);
 }
+
+footer .legal{
+	color:#f2f2f2;
+	font-family: 'Source Sans Pro',sans-serif;
+	font-size: 0.7em;
+	font-weight: 200;
+	margin-top: -20px;
+}
+
+
 
 footer img{
 width:15%;
