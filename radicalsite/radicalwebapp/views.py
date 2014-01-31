@@ -39,14 +39,15 @@ def post(request, pk):
     post.views = post.views + 1
     post.save()
 
-    post_user = request.user
-    author = Author.objects.get(user=post_user.id)
+    if request.user.is_authenticated():
+        user = request.user
+    else:
+        user = User.objects.get(username='Guest')
 
     context={'post':post,
              'comments':comments,
              'form':CommentForm(),
-             'user':request.user,
-             'author':author,
+             'user':user,
     }
 
     #context.update(csrf(request))
@@ -134,8 +135,14 @@ def main(request):
         posts = paginator.page(paginator.num_pages)
 
 
+    if request.user.is_authenticated():
+        user = request.user
+    else:
+        user = User.objects.get(username='Guest')
+
+
     context = { 'posts':posts,
-                'user':request.user,
+                'user':user,
                 'post_list':posts.object_list,
                 'months':mkmonth_lst(),
                 'STATIC_URL' : settings.STATIC_URL

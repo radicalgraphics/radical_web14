@@ -64,9 +64,9 @@ Blog
             <div class="authors">
                 <h2>about the author</h2>
                 <div class="author">
-                    <img src="{{ author.photo_thumbnail.url }}" alt="">
+                    <img src="{{ post.author.author.photo_thumbnail.url }}" alt="">
                     <h2>{{ post.author.username }}</h2>
-                    <p>{{ author.description }}</p>
+                    <p>{{ post.author.author.description }}</p>
                 </div><!--author-->
             </div><!--authors-->
             
