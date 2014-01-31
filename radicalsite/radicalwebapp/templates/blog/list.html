@@ -34,10 +34,10 @@ Blog
                             <h6>{{ post.created }}</h6>
                             <h2><a href="{% url 'radicalwebapp.views.post' post.pk %}">{{ post.title }}</a></h2>
                             
-                            <div class="post-info">by <a href="#">{{post.author.username}}</a> in 
+                            <div class="post-info">by {{post.author.username}} in 
                                 <ul>
                                     {% for etiqueta in post.tag.all %}
-                                        <li><a href="#">{{ etiqueta.tag }}</a></li>
+                                        <li>{{ etiqueta.tag }}</li>
                                     {% endfor %}
                                 </ul>
                             </div>

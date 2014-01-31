@@ -29,10 +29,10 @@ Blog
                     
                     <h6>{{ post.created }}</h6>
                     <h2>{{ post.title }}</h2>
-                    <div class="post-info">by <a href="#">{{ post.author.username }}</a> in 
+                    <div class="post-info">by {{ post.author.username }} in 
                         <ul>
                             {% for etiqueta in post.tag.all %}
-                                <li><a href="#">{{ etiqueta.tag }}</a></li>
+                                <li>{{ etiqueta.tag }}</li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -43,16 +43,15 @@ Blog
                             <h5>share this post:</h5>
                             <ul class="social-fonts">
                                 <li><a href="#"><span class="icon-facebook"></span></a></li>
-                                <li ><a href="#"><span class="icon-twitter"></span></a></li>
-                                <li ><a href="#"><span class="icon-pinterest"></span></a></li>
-                                <li ><a href="#"><span class="icon-linkedin"></span></a></li>
-                                <li ><a href="#"><span class="icon-linkedin"></span></a></li>
+                                <li >
+                                    <a href="https://twitter.com/share" class="twitter-share-button" data-via="radicalgraph1cs" data-size="large">Tweet</a>
+                                </li>
                             </ul>
                         </li>
                         <li><h5>Tags:</h5>
                             <ul>
                                 {% for etiqueta in post.tag.all %}
-                                    <li><a href="#">{{ etiqueta.tag }}</a></li>
+                                    <li>{{ etiqueta.tag }}</li>
                                 {% endfor %}
                             </ul>
                         </li>
@@ -109,7 +108,7 @@ Blog
                 </div><!--comments-->
             {% else %}
                 <div class="comments">
-                    <h2>No comments...yet</h2>
+                    <h2>No comments...yet</h2><br>
                 </div>
             {% endif %}
 
