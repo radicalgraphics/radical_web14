@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib import admin
 from django.core.mail import send_mail
+from django.core.urlresolvers import reverse
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
 
@@ -33,8 +34,15 @@ class Post(models.Model):
     image = models.ImageField(upload_to="media/img/blog", default="")
     views = models.IntegerField(default=0)
     tag = models.ManyToManyField('Tags', blank=True, null=True)
+    slug = models.SlugField(unique=True,max_length=255)
+    class Meta:
+        ordering = ['-created']
+
     def __unicode__(self):
         return self.title 
+
+    def get_absolute_url(self):
+        return reverse('radicalwebapp.views.post',args=[self.slug])
 
 
 class Comment(models.Model):

@@ -30,9 +30,9 @@ class CommentForm(ModelForm):
         exclude = ["post"]
 
 
-def post(request, pk):
+def post(request, slug):
     """Single post with comments and a comment form."""
-    post = Post.objects.get(pk=pk)
+    post = Post.objects.get(slug=slug)
     comments = Comment.objects.filter(post=post)
     
     ## we update the view count

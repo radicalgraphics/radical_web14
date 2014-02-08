@@ -17,11 +17,20 @@ class PostAdminForm(forms.ModelForm):
 
 class PostAdmin(admin.ModelAdmin):
 	form = PostAdminForm
+	list_display = ['title','created']
+	list_filter = ['author','created']
+	save_on_top = True
+	prepopulated_fields = {"slug": ("title",)}
 	
+class PortfolioAdmin(admin.ModelAdmin):
+	list_display = ['name','platform','tag','featured']
+	list_filter = ['name','platform','tag','featured']
+	save_on_top = True
+
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)
-admin.site.register(Portfolio)
+admin.site.register(Portfolio, PortfolioAdmin)
 admin.site.register(HowWeWork)
 admin.site.register(Tags)
 admin.site.register(Author)
