@@ -36,5 +36,5 @@ urlpatterns = patterns('',
     url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
 
     #Redactor URLS
-    url(r'^redactor/', include('redactor.urls')),
+    #url(r'^redactor/', include('redactor.urls')),
 )
