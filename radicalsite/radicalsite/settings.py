@@ -145,11 +145,11 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'dajaxice',
     'dajax',
-    'redactor',
+    #'redactor',
 )
 
-REDACTOR_OPTIONS = {'lang':'en'}
-REDACTOR_UPLOAD = 'media/'
+#REDACTOR_OPTIONS = {'lang':'en'}
+#REDACTOR_UPLOAD = 'media/'
 
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
@@ -185,6 +185,6 @@ LOGGING = {
 
 
 try:
-   from local_settings_BOCH import *
+   from local_settings_BOCH_RAD_OFFICE import *
 except ImportError:
    pass
