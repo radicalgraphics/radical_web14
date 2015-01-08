@@ -185,6 +185,6 @@ LOGGING = {
 
 
 try:
-   from local_settings_BOCH_RAD_OFFICE import *
+   from local_settings_BOCH import *
 except ImportError:
    pass
